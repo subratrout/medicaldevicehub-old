@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pmak_number: MyText
+  applicant: MyText
+  street1: MyText
+  street2: MyText
+  city: MyText
+  state: MyText
+  zip: MyText
+  generic_name: MyText
+  trade_name: MyText
+  product_code: MyText
+  advisory_committee: MyText
+  description: MyText
+
+two:
+  pmak_number: MyText
+  applicant: MyText
+  street1: MyText
+  street2: MyText
+  city: MyText
+  state: MyText
+  zip: MyText
+  generic_name: MyText
+  trade_name: MyText
+  product_code: MyText
+  advisory_committee: MyText
+  description: MyText

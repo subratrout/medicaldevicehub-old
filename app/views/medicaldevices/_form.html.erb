@@ -1,0 +1,65 @@
+<%= form_for(@medicaldevice) do |f| %>
+  <% if @medicaldevice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medicaldevice.errors.count, "error") %> prohibited this medicaldevice from being saved:</h2>
+
+      <ul>
+      <% @medicaldevice.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pmak_number %><br>
+    <%= f.text_area :pmak_number %>
+  </div>
+  <div class="field">
+    <%= f.label :applicant %><br>
+    <%= f.text_area :applicant %>
+  </div>
+  <div class="field">
+    <%= f.label :street1 %><br>
+    <%= f.text_area :street1 %>
+  </div>
+  <div class="field">
+    <%= f.label :street2 %><br>
+    <%= f.text_area :street2 %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_area :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_area :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_area :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :generic_name %><br>
+    <%= f.text_area :generic_name %>
+  </div>
+  <div class="field">
+    <%= f.label :trade_name %><br>
+    <%= f.text_area :trade_name %>
+  </div>
+  <div class="field">
+    <%= f.label :product_code %><br>
+    <%= f.text_area :product_code %>
+  </div>
+  <div class="field">
+    <%= f.label :advisory_committee %><br>
+    <%= f.text_area :advisory_committee %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

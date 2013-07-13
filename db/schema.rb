@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130712055232) do
+ActiveRecord::Schema.define(version: 20130713061454) do
+
+  create_table "medicaldevices", force: true do |t|
+    t.text     "pmak_number"
+    t.text     "applicant"
+    t.text     "street1"
+    t.text     "street2"
+    t.text     "city"
+    t.text     "state"
+    t.text     "zip"
+    t.text     "generic_name"
+    t.text     "trade_name"
+    t.text     "product_code"
+    t.text     "advisory_committee"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
