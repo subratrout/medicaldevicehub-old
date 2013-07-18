@@ -1,29 +1,31 @@
-<h1>Listing medicaldevices</h1>
-
-<table>
+<%- model_class = Medicaldevice -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Pmak number</th>
-      <th>Applicant</th>
-      <th>Street1</th>
-      <th>Street2</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Generic name</th>
-      <th>Trade name</th>
-      <th>Product code</th>
-      <th>Advisory committee</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:pmak_number) %></th>
+      <th><%= model_class.human_attribute_name(:applicant) %></th>
+      <th><%= model_class.human_attribute_name(:street1) %></th>
+      <th><%= model_class.human_attribute_name(:street2) %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name(:state) %></th>
+      <th><%= model_class.human_attribute_name(:zip) %></th>
+      <th><%= model_class.human_attribute_name(:generic_name) %></th>
+      <th><%= model_class.human_attribute_name(:trade_name) %></th>
+      <th><%= model_class.human_attribute_name(:product_code) %></th>
+      <th><%= model_class.human_attribute_name(:advisory_committee) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @medicaldevices.each do |medicaldevice| %>
       <tr>
+        <td><%= link_to medicaldevice.id, medicaldevice_path(medicaldevice) %></td>
         <td><%= medicaldevice.pmak_number %></td>
         <td><%= medicaldevice.applicant %></td>
         <td><%= medicaldevice.street1 %></td>
@@ -36,14 +38,21 @@
         <td><%= medicaldevice.product_code %></td>
         <td><%= medicaldevice.advisory_committee %></td>
         <td><%= medicaldevice.description %></td>
-        <td><%= link_to 'Show', medicaldevice %></td>
-        <td><%= link_to 'Edit', edit_medicaldevice_path(medicaldevice) %></td>
-        <td><%= link_to 'Destroy', medicaldevice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l medicaldevice.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_medicaldevice_path(medicaldevice), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      medicaldevice_path(medicaldevice),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Medicaldevice', new_medicaldevice_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_medicaldevice_path,
+            :class => 'btn btn-primary' %>

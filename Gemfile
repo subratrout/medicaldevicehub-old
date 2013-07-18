@@ -51,7 +51,14 @@ end
 
 gem 'devise', :git=> 'git://github.com/plataformatec/devise.git'
 
-
+gem "rspec-rails", ">= 2.0", :group => [:development, :test]
+gem "database_cleaner", :group => :test
+gem "email_spec", ">= 1.4.0", :group => :test
+gem "cucumber-rails", :group => :test, :require => false
+gem "capybara", :group => :test
+gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
+gem "simple_form"
+gem "better_errors", ">= 0.7.2", :group => :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

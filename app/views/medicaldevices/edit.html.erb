@@ -1,6 +1,5 @@
-<h1>Editing medicaldevice</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @medicaldevice %> |
-<%= link_to 'Back', medicaldevices_path %>
+<%- model_class = Medicaldevice -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>
