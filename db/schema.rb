@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130713061454) do
+ActiveRecord::Schema.define(version: 20130719071805) do
 
   create_table "medicaldevices", force: true do |t|
     t.text     "pmak_number"
@@ -28,6 +28,10 @@ ActiveRecord::Schema.define(version: 20130713061454) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: true do |t|

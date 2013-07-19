@@ -52,6 +52,7 @@ gem "capybara", :group => :test
 gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
 gem "simple_form", "3.0.0.rc"
 gem "better_errors", ">= 0.7.2", :group => :development
+gem "paperclip", "~>3.0"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -6,19 +6,11 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:pmak_number) %></th>
-      <th><%= model_class.human_attribute_name(:applicant) %></th>
-      <th><%= model_class.human_attribute_name(:street1) %></th>
-      <th><%= model_class.human_attribute_name(:street2) %></th>
-      <th><%= model_class.human_attribute_name(:city) %></th>
-      <th><%= model_class.human_attribute_name(:state) %></th>
-      <th><%= model_class.human_attribute_name(:zip) %></th>
       <th><%= model_class.human_attribute_name(:generic_name) %></th>
       <th><%= model_class.human_attribute_name(:trade_name) %></th>
+      <th><%= model_class.human_attribute_name(:applicant) %></th>
       <th><%= model_class.human_attribute_name(:product_code) %></th>
-      <th><%= model_class.human_attribute_name(:advisory_committee) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -26,19 +18,11 @@
     <% @medicaldevices.each do |medicaldevice| %>
       <tr>
         <td><%= link_to medicaldevice.id, medicaldevice_path(medicaldevice) %></td>
-        <td><%= medicaldevice.pmak_number %></td>
-        <td><%= medicaldevice.applicant %></td>
-        <td><%= medicaldevice.street1 %></td>
-        <td><%= medicaldevice.street2 %></td>
-        <td><%= medicaldevice.city %></td>
-        <td><%= medicaldevice.state %></td>
-        <td><%= medicaldevice.zip %></td>
-        <td><%= medicaldevice.generic_name %></td>
+        <td><%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %></td>
         <td><%= medicaldevice.trade_name %></td>
+       <td><%= medicaldevice.applicant %></td>
         <td><%= medicaldevice.product_code %></td>
-        <td><%= medicaldevice.advisory_committee %></td>
-        <td><%= medicaldevice.description %></td>
-        <td><%=l medicaldevice.created_at %></td>
+        <td><%= truncate(medicaldevice.description, :length =>40) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_medicaldevice_path(medicaldevice), :class => 'btn btn-mini' %>
