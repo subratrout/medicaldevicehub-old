@@ -11,13 +11,6 @@ group :development do
 	gem 'sqlite3', '1.3.7'
 end
 
-
-
-
-
-
-
-
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -57,7 +50,7 @@ gem "email_spec", ">= 1.4.0", :group => :test
 gem "cucumber-rails", :group => :test, :require => false
 gem "capybara", :group => :test
 gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
-gem "simple_form"
+gem "simple_form", "3.0.0.rc"
 gem "better_errors", ">= 0.7.2", :group => :development
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

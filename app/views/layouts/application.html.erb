@@ -11,32 +11,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
-<div class="navbar navbar-fixed-top">
-	  <div class="navbar-inner">
-		    <div class="container">
-		      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </a>
-		      <a class="brand" href="#">Medical Device Hub</a>
-		      <div class="nav-collapse">
-		        <ul class="nav">
-		          <li><%= link_to "Medical Devices" %></li>
-		          <li><%= link_to "Price List" %></li>
-		          <li><%= link_to "Contact Us" %></li>
-		          <li><%= link_to "Cart" %></li>
-		        </ul>
-		      </div>
+	<div class="container">
+		  <div id="user_nav top-right">
+			    <% if user_signed_in? %>
+			      Logged in as <strong><%= current_user.email %></strong>.
+			      <%= link_to 'Edit profile', edit_user_registration_path %> |
+			      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+			    <% else %>
+			      <%= link_to "Sign up", new_user_registration_path %> |
+			      <%= link_to "Login", new_user_session_path %>
+			    <% end %>
+  		   </div>
+	  <% flash.each do |name, msg| %>
+		    <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+		      <a class="close" data-dismiss="alert">x</a>
+		      <%= msg  %>
 		    </div>
-	  </div>
-</div>
-	
-  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+	  <% end %>
 
-<%= yield %>
-
+			<div class="navbar navbar-fixed-top">
+				  <div class="navbar-inner">
+					    <div class="container">
+					      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </a>
+					      <a class="brand" href="#">Medical Device Hub</a>
+					      <div class="nav-collapse">
+					        <ul class="nav">
+					          <li><%= link_to "Medical Devices" %></li>
+					          <li><%= link_to "Price List" %></li>
+					          <li><%= link_to "Contact Us" %></li>
+					          <li><%= link_to "Cart" %></li>
+					        </ul>
+					      </div>
+					    </div>
+				  </div>
+			</div>
+				
+			<%= yield %>
+	</div>
 </body>
 </html>
