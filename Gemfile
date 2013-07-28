@@ -4,7 +4,10 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 gem 'pg'
-gem 'awesome_print'
+
+group :development do
+  gem 'awesome_print'
+end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
