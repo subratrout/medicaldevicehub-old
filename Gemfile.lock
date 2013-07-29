@@ -142,7 +142,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   coffee-rails (~> 4.0.0)
-  devise
+  devise (~> 3.0)
   jbuilder (~> 1.2)
   jquery-rails
   less-rails
