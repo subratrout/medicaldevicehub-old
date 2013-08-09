@@ -42,7 +42,7 @@ end
 	gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 
-gem 'devise'
+gem 'devise' , github: 'plataformatec/devise', branch: 'rails4'
 
 gem "rspec-rails", ">= 2.0", :group => [:development, :test]
 gem "database_cleaner", :group => :test
