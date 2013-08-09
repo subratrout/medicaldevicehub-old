@@ -22,7 +22,7 @@ module Medicaldevicehub
     # config.i18n.default_locale = :de
 
 
-config.assets.initialize_on_precompile = false
-
+    config.assets.initialize_on_precompile = false
+    config.assets.precompile+=%w(*.png *.jpg *.jpeg *.gif)
   end
 end
