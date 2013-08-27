@@ -12,31 +12,34 @@
 </head>
 <body>
 
-<div class="navbar navbar-fixed-top">
-	  <div class="navbar-inner">
-		    <div class="container">
-		      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </a>
-		      <a class="brand" href="#">Medical Device Hub</a>
-		      <div class="nav-collapse">
-		        <ul class="nav">
-		          <li><%= link_to "Medical Devices" %></li>
-		          <li><%= link_to "Price List" %></li>
-		          <li><%= link_to "Contact Us" %></li>
-		          <li><%= link_to "Cart" %></li>
-		        </ul>
-		      </div>
-		    </div>
-	  </div>
-</div>
-	
-  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+	<div class="container">
 
-<%= yield %>
+		<div class="navbar navbar-fixed-top">
+			  <div class="navbar-inner">
+				    <div class="container">
+				      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </a>
+				      <a class="brand" href="#">Medical Device Hub</a>
+				      <div class="nav-collapse">
+				        <ul class="nav">
+				          <li><%= link_to "Medical Devices" %></li>
+				          <li><%= link_to "Price List" %></li>
+				          <li><%= link_to "Contact Us" %></li>
+				          <li><%= link_to "Cart" %></li>
+				        </ul>
+				      </div>
+				    </div>
+			  </div>
+		</div>
+	
+  			<p class="notice"><%= notice %></p>
+       		<p class="alert"><%= alert %></p>
+
+		<%= yield %>
+	</div>
 
 </body>
 </html>

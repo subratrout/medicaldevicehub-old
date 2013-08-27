@@ -4,7 +4,7 @@ class MedicaldevicesController < ApplicationController
   # GET /medicaldevices
   # GET /medicaldevices.json
   def index
-    @medicaldevices = Medicaldevice.all
+    @medicaldevices = Medicaldevice.limit(40)
   end
 
   # GET /medicaldevices/1
@@ -60,6 +60,7 @@ class MedicaldevicesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

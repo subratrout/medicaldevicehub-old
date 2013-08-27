@@ -24,14 +24,14 @@
   <tbody>
     <% @medicaldevices.each do |medicaldevice| %>
       <tr>
-        <td><%= medicaldevice.pmak_number %></td>
+        <td><%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %></td>
+          <td><%= medicaldevice.pmak_number %></td>
         <td><%= medicaldevice.applicant %></td>
         <td><%= medicaldevice.street1 %></td>
         <td><%= medicaldevice.street2 %></td>
         <td><%= medicaldevice.city %></td>
         <td><%= medicaldevice.state %></td>
         <td><%= medicaldevice.zip %></td>
-        <td><%= medicaldevice.generic_name %></td>
         <td><%= medicaldevice.trade_name %></td>
         <td><%= medicaldevice.product_code %></td>
         <td><%= medicaldevice.advisory_committee %></td>
@@ -46,4 +46,4 @@
 
 <br>
 
-<%= link_to 'New Medicaldevice', new_medicaldevice_path %>
+<%= link_to 'New Medicaldevice', new_medicaldevice_path, :class => 'btn btn-primary' %>

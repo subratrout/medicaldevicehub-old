@@ -1,5 +1,5 @@
 class CreateMedicaldevices < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :medicaldevices do |t|
       t.text :pmak_number
       t.text :applicant
@@ -16,5 +16,9 @@ class CreateMedicaldevices < ActiveRecord::Migration
 
       t.timestamps
     end
+  end
+
+  def self.down
+    drop_table :medicaldevices
   end
 end

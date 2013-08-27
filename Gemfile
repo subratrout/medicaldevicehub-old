@@ -2,41 +2,43 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '4.0.0'
-gem 'sqlite3', '1.3.7'
 gem 'jquery-rails', '3.0.4'
 gem 'turbolinks', '1.3.0'
 gem 'jbuilder', '~> 1.2'
-
-group :doc do
-  gem 'sdoc', require: false
-end
-
+gem 'devise', '3.0.1'
+gem 'cancan', '1.6.10'
+gem 'pg', '0.15.1'
+gem 'rails_12factor', '0.0.2'
 gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~>4.0.0'
 gem 'uglifier', '2.1.1'
 
 group :test do
-	gem "rspec-rails", :group => [:development]
-	gem "database_cleaner"
-	gem "email_spec"
-	gem "cucumber-rails", '1.3.0', :require => false
-	gem "launchy"
-	gem "capybara", '2.1.0'
-	gem "factory_girl_rails", :group => [:development, :test]
+	gem 'rspec-rails','2.14.0'
+	gem 'email_spec'
+	gem 'launchy', '2.3.0'
+	gem 'capybara', '2.1.0'
+	gem 'factory_girl_rails', '4.2.1'
 end
 
-gem "devise", '3.0.1'
-gem "quiet_assets", :group => :development
-gem "figaro", ">= 0.5.3"
-gem "better_errors", :group => :development
-gem "binding_of_caller", :group => :development
-gem 'bootstrap-sass',
+group :development do
+	gem 'rspec-rails', '2.14.0'
+	gem "quiet_assets", '1.0.2'
+	gem "figaro", ">= 0.5.3"
+	gem "better_errors", '0.9.0'
+	gem "binding_of_caller", '0.7.2'
+	gem 'bootstrap-sass',
     git: 'git://github.com/thomas-mcdonald/bootstrap-sass.git',
     branch: '3'
-gem 'protected_attributes'
-gem 'simple_form'
-gem 'compass-rails', "~> 2.0.alpha.0"
+    gem 'protected_attributes', '1.0.3'
+	gem 'simple_form', '1.4.1'
+	gem 'compass-rails', "~> 2.0.alpha.0"
+	gem 'konacha', '2.7.0'
+  	gem 'thin', '1.5.1'
+  	gem 'factory_girl_rails', '4.2.1'
+  	gem 'roo'
+end
 
-
-gem 'pg', '0.15.1'
-gem 'rails_12factor', '0.0.2'
+group :doc do
+  gem 'sdoc', '0.3.20'
+end
