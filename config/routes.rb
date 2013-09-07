@@ -1,6 +1,10 @@
 Medicaldevicehub::Application.routes.draw do
+  root :to => 'pages#home'
+  get 'about' => 'pages#about'
+  get 'index' => 'pages#index'
 
   resources :medicaldevices
+  resources :pages
   devise_for :users
   
   # The priority is based upon order of creation: first created -> highest priority.

@@ -24,11 +24,7 @@ C. Device detail page.
 
 (e) Adding a review on device.
 
-5. Two login systems (User, Manufacturer).
 
-6. Manufacturer can add a device but not user. 
-
-7. User can only upload a device picture, video or write a review.
 
 
 For Backend:
@@ -38,4 +34,10 @@ For Backend:
 2. Manufacturer can set a particular device keyword and see device alert or warning etc.
 
 3. This warning will be extracted from a specific url or from Google.
+
+4. Two login systems (User, Manufacturer).
+
+5. Manufacturer can add a device but not user. 
+
+6. User can only upload a device picture, video or write a review.
 

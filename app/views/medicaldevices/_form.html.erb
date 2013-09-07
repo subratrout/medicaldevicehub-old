@@ -1,4 +1,4 @@
-<%= form_for(@medicaldevice) do |f| %>
+<%= simple_form_for(@medicaldevice) do |f| %>
   <% if @medicaldevice.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@medicaldevice.errors.count, "error") %> prohibited this medicaldevice from being saved:</h2>
@@ -59,7 +59,7 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit "Add a Device", class: "btn btn-primary" %>
   </div>
 <% end %>

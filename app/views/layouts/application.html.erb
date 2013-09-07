@@ -13,40 +13,10 @@
 <body>
 
 	<div class="container">
-
-		<div class="navbar navbar-fixed-top">
-			  <div class="navbar-inner">
-				    <div class="container">
-				      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				      </a>
-				      <a class="brand" href="#">Medical Device Hub</a>
-				      <div class="nav-collapse">
-				        <ul class="nav">
-				          <li><%= link_to "Medical Devices" %></li>
-				          <li><%= link_to "Price List" %></li>
-				          <li><%= link_to "Contact Us" %></li>
-				          <li><%= link_to "Cart" %></li>
-				        </ul>
-				        <ul class="nav pull-right">
-	                      		<% if user_signed_in? %>
-	                        		<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-	                       			<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-	                      		<% else %>
-	                    			<li><%= link_to "Login", new_user_session_path %></li>
-	                      		<% end %>
-            			</ul>
-				      </div>
-				    </div>
-			  </div>
-		</div>
-	
-  			<p class="notice"><%= notice %></p>
-       		<p class="alert"><%= alert %></p>
+		<%= render 'layouts/header' %>
 
 		<%= yield %>
+		<%= render 'layouts/footer' %>
 	</div>
 
 </body>

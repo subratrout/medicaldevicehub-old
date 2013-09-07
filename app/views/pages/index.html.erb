@@ -1,0 +1,40 @@
+
+<%= form_tag pages_path, method: :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search]%>
+    <%= submit_tag "search", name: nil %>
+  </p>
+<% end %>
+
+
+<h1>Listing medicaldevices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Device </th>
+      <th>Pmak number</th>
+      <th>Applicant</th>
+      <th>Generic name</th>
+      <th>Trade name</th>
+      <th>Product code</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medicaldevices.each do |medicaldevice| %>
+      <tr>
+        <td><%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %></td>
+        <td><%= medicaldevice.pmak_number %></td>
+        <td><%= medicaldevice.applicant %></td>
+        <td><%= medicaldevice.generic_name %></td>
+        <td><%= medicaldevice.trade_name %></td>
+        <td><%= medicaldevice.product_code %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Back', pages_path, :class => 'btn btn-primary' %>
