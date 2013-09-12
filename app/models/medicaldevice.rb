@@ -1,4 +1,11 @@
 class Medicaldevice < ActiveRecord::Base
+
+
+	belongs_to :manufacturer
+
+	mount_uploader :image, ImageUploader
+
+
 	include PgSearch
 	pg_search_scope :search, :against => [:applicant, :generic_name, :trade_name, :description],
 	using: {tsearch: {dictionary: "english"}},

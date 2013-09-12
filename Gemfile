@@ -13,6 +13,11 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~>4.0.0'
 gem 'uglifier', '2.1.1'
 gem 'pg_search', "~> 0.7.0"
+gem 'carrierwave', "~>0.9.0"
+gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+gem 'bootstrap-sass',
+    git: 'git://github.com/thomas-mcdonald/bootstrap-sass.git',
+    branch: '3'
 
 group :test do
 	gem 'rspec-rails','2.14.0'
@@ -21,6 +26,7 @@ group :test do
 	gem 'capybara', '2.1.0'
 	gem 'factory_girl_rails', '4.2.1'
 	gem 'pg_search', "~> 0.7.0"
+	gem 'carrierwave', "~>0.9.0"
 end
 
 group :development do
@@ -33,13 +39,13 @@ group :development do
     git: 'git://github.com/thomas-mcdonald/bootstrap-sass.git',
     branch: '3'
     #gem 'protected_attributes', '1.0.3'
-	gem 'simple_form', '1.4.1'
 	gem 'compass-rails', "~> 2.0.alpha.0"
 	gem 'konacha', '2.7.0'
   	#gem 'thin', '1.5.1'
   	gem 'factory_girl_rails', '4.2.1'
   	gem 'roo'
   	gem 'pg_search', "~> 0.7.0"
+  	gem 'carrierwave', "~>0.9.0"
 end
 
 group :doc do

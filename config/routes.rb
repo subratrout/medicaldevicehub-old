@@ -1,4 +1,5 @@
 Medicaldevicehub::Application.routes.draw do
+  
   root :to => 'pages#home'
   get 'about' => 'pages#about'
   get 'index' => 'pages#index'
@@ -6,6 +7,7 @@ Medicaldevicehub::Application.routes.draw do
   resources :medicaldevices
   resources :pages
   devise_for :users
+  devise_for :manufacturers
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

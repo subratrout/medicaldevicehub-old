@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<div id="medicaldevice">
+
+    <div class="medicaldevice">
+      <%= image_tag @medicaldevice.image.url.to_s %>
+    </div>
+
+  <div class="clear"></div>
+</div>
+
 <p>
   <strong>Pmak number:</strong>
   <%= @medicaldevice.pmak_number %>
