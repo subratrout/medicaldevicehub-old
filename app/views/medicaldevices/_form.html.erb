@@ -1,3 +1,4 @@
+
 <%= simple_form_for(@medicaldevice) do |f| %>
   <% if @medicaldevice.errors.any? %>
     <div id="error_explanation">
@@ -10,8 +11,6 @@
       </ul>
     </div>
   <% end %>
-
-
 
   <div class="field">
     <%= f.label :pmak_number %><br>
@@ -66,6 +65,7 @@
 
    <div class = "field">
     <%= image_tag(@medicaldevice.image_url) if @medicaldevice.image? %>
+ 
     <%= f.label :image %>
     <%= f.file_field :image %>
   <p>
@@ -79,4 +79,8 @@
   <div class="form-actions">
     <%= f.submit "Add or Update a Device", class: "btn btn-primary" %>
   </div>
+ 
 <% end %>
+
+
+

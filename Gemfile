@@ -19,6 +19,14 @@ gem 'bootstrap-sass',
     git: 'git://github.com/thomas-mcdonald/bootstrap-sass.git',
     branch: '3'
 
+gem 'rmagick'
+gem 'mini_magick'
+gem 'fog'
+gem 'carrierwave_direct'
+gem 'sidekiq'
+
+
+
 group :test do
 	gem 'rspec-rails','2.14.0'
 	gem 'email_spec'
@@ -46,6 +54,13 @@ group :development do
   	gem 'roo'
   	gem 'pg_search', "~> 0.7.0"
   	gem 'carrierwave', "~>0.9.0"
+  	gem 'mini_magick'
+  	gem 'fog'
+  	gem 'carrierwave_direct'
+	gem 'sidekiq'
+	
+
+
 end
 
 group :doc do

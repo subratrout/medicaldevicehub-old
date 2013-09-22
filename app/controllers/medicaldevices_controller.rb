@@ -5,20 +5,27 @@ class MedicaldevicesController < ApplicationController
   # GET /medicaldevices.json
   def index
     @medicaldevices = Medicaldevice.limit(40)
+    @uploader = Medicaldevice.new.image
+    @uploader.success_action_redirect = @medicaldevice
   end
 
   # GET /medicaldevices/1
   # GET /medicaldevices/1.json
   def show
+    @medicaldevice = Medicaldevice.find(params[:id])
   end
 
   # GET /medicaldevices/new
   def new
     @medicaldevice = Medicaldevice.new
+    @medicaldevices = Medicaldevice.new(key: params[:key])
   end
 
   # GET /medicaldevices/1/edit
   def edit
+    #@medicaldevice = Medicaldevice.find(params[:id])
+    #@uploader = Medicaldevice.new.image
+    #@uploader.success_action_redirect = @medicaldevice
   end
 
   # POST /medicaldevices
@@ -70,6 +77,7 @@ class MedicaldevicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medicaldevice_params
-      params.require(:medicaldevice).permit(:pmak_number, :applicant, :street1, :street2, :city, :state, :zip, :generic_name, :trade_name, :product_code, :advisory_committee, :description, :image, :remove_image)
+      params.require(:medicaldevice).permit(:pmak_number, :applicant, :street1, :street2, :city, :state, :zip, :generic_name, :trade_name, :product_code, 
+        :advisory_committee, :description, :image, :remove_image)
     end
 end

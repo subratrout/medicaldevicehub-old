@@ -27,4 +27,30 @@ class Medicaldevice < ActiveRecord::Base
 	  		@medicaldevices = Medicaldevice.limit(40)
 	  	end
 	end
+
+
+
+
+#	after_save :enqueue_image
+  
+  def image_name
+    File.basename(image.path || image.filename) if image
+  end
+
+ # def enqueue_image
+ #   ImageWorker.perform_async(id, key) if key.present?
+ # end
+
+  class ImageWorker
+    include Sidekiq::Worker
+    
+    def perform(id, key)
+      medicaldevice = Medicaldevice.find(id)
+      medicaldevice.key = key
+      medicaldevice.remote_image_url = medicaldevice.image.direct_fog_url(with_path: true)
+      medicaldevice.save!
+      medicaldevice.update_column(:image_processed, true)
+    end
+  end
+
 end
