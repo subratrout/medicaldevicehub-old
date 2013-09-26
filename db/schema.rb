@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20130910223708) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
+    t.text     "image"
   end
 
   create_table "pg_search_documents", force: true do |t|
