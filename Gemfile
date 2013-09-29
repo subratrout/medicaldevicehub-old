@@ -24,6 +24,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'carrierwave_direct'
 gem 'sidekiq'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 
 
@@ -35,6 +36,7 @@ group :test do
 	gem 'factory_girl_rails', '4.2.1'
 	gem 'pg_search', "~> 0.7.0"
 	gem 'carrierwave', "~>0.9.0"
+	gem 'activeadmin', github: 'gregbell/active_admin'
 end
 
 group :development do
@@ -58,6 +60,7 @@ group :development do
   	gem 'fog'
   	gem 'carrierwave_direct'
 	gem 'sidekiq'
+	gem 'activeadmin', github: 'gregbell/active_admin'
 	
 
 

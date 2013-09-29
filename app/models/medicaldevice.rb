@@ -1,7 +1,7 @@
 class Medicaldevice < ActiveRecord::Base
 
 
-	belongs_to :manufacturer
+	#belongs_to :manufacturer
 
 	mount_uploader :image, ImageUploader
 
