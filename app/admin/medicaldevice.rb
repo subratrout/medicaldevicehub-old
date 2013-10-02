@@ -6,7 +6,7 @@ ActiveAdmin.register Medicaldevice do
     	column :trade_name
     	column :product_code
     	column :advisory_committee
+
     	default_actions
   	end
-
 end

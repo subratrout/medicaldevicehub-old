@@ -6,8 +6,8 @@ Medicaldevicehub::Application.routes.draw do
   get 'about' => 'pages#about'
 
 
-  resources :medicaldevices
-  #resources :pages
+  resources :medicaldevices, except: :destory
+  resources :pages
   devise_for :users
 
   devise_for :manufacturers
