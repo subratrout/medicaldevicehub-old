@@ -25,6 +25,7 @@ gem 'fog'
 gem 'carrierwave_direct'
 gem 'sidekiq'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem "figaro", ">= 0.5.3"
 
 
 
@@ -42,7 +43,7 @@ end
 group :development do
 	gem 'rspec-rails', '2.14.0'
 	gem "quiet_assets", '1.0.2'
-	gem "figaro", ">= 0.5.3"
+	
 	gem "better_errors", '0.9.0'
 	gem "binding_of_caller", '0.7.2'
 	gem 'bootstrap-sass',

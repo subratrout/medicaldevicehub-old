@@ -18,5 +18,8 @@
 
 # Initializer for environment variables
 config/environments/app_environment_variables.rb
+config/initializers/app_environment_variables.rb
 
 public/uploads/tmp
+# Ignore application configuration
+/config/application.yml
