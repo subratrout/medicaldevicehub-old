@@ -26,6 +26,8 @@ gem 'carrierwave_direct'
 gem 'sidekiq'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem "figaro", ">= 0.5.3"
+gem 'thin'
+
 
 
 
@@ -63,8 +65,6 @@ group :development do
 	gem 'sidekiq'
 	gem 'activeadmin', github: 'gregbell/active_admin'
 	
-
-
 end
 
 group :doc do

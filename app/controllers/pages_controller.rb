@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 
 	  def home
 	  	@medicaldevices =Medicaldevice.limit(40)
+	  	
 	  end
 
 	  def about
@@ -28,6 +29,6 @@ class PagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medicaldevice_params
-      params.require(:medicaldevice).permit(:pmak_number, :applicant, :street1, :street2, :city, :state, :zip, :generic_name, :trade_name, :product_code, :advisory_committee, :description)
+      params.require(:medicaldevice).permit(:pmak_number, :applicant, :street1, :street2, :city, :state, :zip, :generic_name, :trade_name, :product_code, :advisory_committee, :description,:image)
     end
 end

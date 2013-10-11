@@ -1,48 +1,38 @@
-<h1>Listing medicaldevices</h1>
+<%= render 'layouts/search' %>
 
+<h1>Listing Medical Devices</h1>
+<% if @medicaldevices.present? %>
 <table>
   <thead>
     <tr>
-      <th>Pmak number</th>
-      <th>Applicant</th>
-      <th>Street1</th>
-      <th>Street2</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
+      <th>Image </th>
+      <th>Device </th>
+      <th>Applicant/Manufacturer</th>
       <th>Generic name</th>
       <th>Trade name</th>
-      <th>Product code</th>
-      <th>Advisory committee</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>PMA/PMN Number</th>
     </tr>
   </thead>
 
   <tbody>
     <% @medicaldevices.each do |medicaldevice| %>
       <tr>
+        <td><%= image_tag medicaldevice.image_url%></td>
         <td><%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %></td>
-          <td><%= medicaldevice.pmak_number %></td>
         <td><%= medicaldevice.applicant %></td>
-        <td><%= medicaldevice.street1 %></td>
-        <td><%= medicaldevice.street2 %></td>
-        <td><%= medicaldevice.city %></td>
-        <td><%= medicaldevice.state %></td>
-        <td><%= medicaldevice.zip %></td>
+        <td><%= medicaldevice.generic_name %></td>
         <td><%= medicaldevice.trade_name %></td>
-        <td><%= medicaldevice.product_code %></td>
-        <td><%= medicaldevice.advisory_committee %></td>
-        <td><%= medicaldevice.description %></td>
-        <td><%= link_to 'Show', medicaldevice %></td>
-        <td><%= link_to 'Edit', edit_medicaldevice_path(medicaldevice) %></td>
+        <td><%= medicaldevice.pmak_number %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<% else %>
+<div>No Medical Devices Found.</div>
+<% end %>
 
-<%= link_to 'New Medicaldevice', new_medicaldevice_path, :class => 'btn btn-primary' %>
+</br>
+
+<%= link_to 'Back to Medicaldevices', medicaldevices_path, :class => 'btn btn-primary' %>

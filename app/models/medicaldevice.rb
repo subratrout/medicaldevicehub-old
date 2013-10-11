@@ -8,26 +8,35 @@ class Medicaldevice < ActiveRecord::Base
 
 
 	include PgSearch
-	pg_search_scope :search, :against => [:applicant, :generic_name, :trade_name, :description],
-	using: {tsearch: {dictionary: "english"}},
+	pg_search_scope :search, :against => [ :generic_name, :trade_name, :description, :applicant],
+	using: [tsearch: {dictionary: "english"}],
 	ignoring: :accents
 
-	def self.text_search(search)
-		if search.present?
-			where("generic_name @@ :s or trade_name @@ :s or description @@ :s or applicant @@ :s", s: search)
+	def self.text_search(query)
+		if query.present?
+			rank = <<-RANK
+      			ts_rank(to_tsvector(generic_name), plainto_tsquery(#{sanitize(query)})) +
+      			ts_rank(to_tsvector(trade_name), plainto_tsquery(#{sanitize(query)}))+
+      			ts_rank(to_tsvector(description), plainto_tsquery(#{sanitize(query)})) +
+      			ts_rank(to_tsvector(applicant), plainto_tsquery(#{sanitize(query)})) 
+    		RANK
+
+
+    	where("to_tsvector('english', generic_name) @@ plainto_tsquery(:q) or to_tsvector('english', trade_name) @@ plainto_tsquery(:q) or to_tsvector('english', description) @@ plainto_tsquery(:q) or to_tsvector('english', applicant)@@ plainto_tsquery(:q)", q: query).order("#{rank} DESC")
+			
 		else
 			all
 		end
 	end
 
-	def self.search(search)
+	#def self.search(search)
 
-		if search
-	  		find(:all, :conditions => ['generic_name LIKE ?', "%#{search}%"])
-	  	else
-	  		@medicaldevices = Medicaldevice.limit(40)
-	  	end
-	end
+		#if search
+	  		#find(:all, :conditions => ['generic_name LIKE ?', "%#{search}%"])
+	  #	else
+	  		# @medicaldevices = Medicaldevice.limit(40)
+	  #	end
+	# end
 
 
 

@@ -1,10 +1,11 @@
 class MedicaldevicesController < ApplicationController
-  before_action :set_medicaldevice, only: [:show, :edit, :update, :destroy]
+  before_action :set_medicaldevice, only: [:show, :edit, :update]
 
   # GET /medicaldevices
   # GET /medicaldevices.json
   def index
     @medicaldevices = Medicaldevice.limit(40)
+    @medicaldevices = Medicaldevice.text_search(params[:query]).page(params[:page])
     @uploader = Medicaldevice.new.image
     @uploader.success_action_redirect = @medicaldevice
   end
