@@ -8,9 +8,9 @@ Medicaldevicehub::Application.routes.draw do
 
   resources :medicaldevices, except: [:destroy, :edit, :update]
   resources :pages
-  devise_for :users
+  devise_for :users, :manufacturers
 
-  devise_for :manufacturers
+
  
   
   # The priority is based upon order of creation: first created -> highest priority.
