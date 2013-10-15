@@ -1,5 +1,6 @@
 class MedicaldevicesController < ApplicationController
   before_action :set_medicaldevice, only: [:show, :edit, :update]
+  before_action :authenticate_manufacturer!, except: [:index, :show]
 
   # GET /medicaldevices
   # GET /medicaldevices.json
@@ -74,6 +75,11 @@ class MedicaldevicesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_medicaldevice
       @medicaldevice = Medicaldevice.find(params[:id])
+    end
+
+    def correct_manufacturer
+      @medicaldevice = correct_manufacturer.medicaldevices.find_by(id: params[:id])
+      redirect_to medicaldevices_path, notice: "Not authorized to edit this medicaldevice" if @medicaldevice.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

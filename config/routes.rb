@@ -1,5 +1,7 @@
 Medicaldevicehub::Application.routes.draw do
   
+  get "manufacturers/index"
+  get "manufacturers/show"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => 'pages#home'

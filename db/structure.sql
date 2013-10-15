@@ -120,6 +120,51 @@ ALTER SEQUENCE admin_users_id_seq OWNED BY admin_users.id;
 
 
 --
+-- Name: classifications; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE classifications (
+    id integer NOT NULL,
+    review_panel character varying(255),
+    medical_speciality character varying(255),
+    product_code character varying(255),
+    device_generic_name character varying(255),
+    device_class character varying(255),
+    unclassified_reason_code character varying(255),
+    gmp_exempt_flag character varying(255),
+    third_party_review_eligible character varying(255),
+    third_party_review_code character varying(255),
+    regulation_number character varying(255),
+    submission_type_id character varying(255),
+    definition text,
+    physical_state text,
+    technical_method text,
+    target_area text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: classifications_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE classifications_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: classifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE classifications_id_seq OWNED BY classifications.id;
+
+
+--
 -- Name: manufacturers; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -179,7 +224,8 @@ CREATE TABLE medicaldevices (
     description text,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    image text
+    image text,
+    manufacturer_id integer
 );
 
 
@@ -302,6 +348,13 @@ ALTER TABLE ONLY admin_users ALTER COLUMN id SET DEFAULT nextval('admin_users_id
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY classifications ALTER COLUMN id SET DEFAULT nextval('classifications_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY manufacturers ALTER COLUMN id SET DEFAULT nextval('manufacturers_id_seq'::regclass);
 
 
@@ -340,6 +393,14 @@ ALTER TABLE ONLY active_admin_comments
 
 ALTER TABLE ONLY admin_users
     ADD CONSTRAINT admin_users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: classifications_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY classifications
+    ADD CONSTRAINT classifications_pkey PRIMARY KEY (id);
 
 
 --
@@ -431,6 +492,48 @@ CREATE UNIQUE INDEX index_admin_users_on_reset_password_token ON admin_users USI
 
 
 --
+-- Name: index_classifications_on_device_generic_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_classifications_on_device_generic_name ON classifications USING btree (device_generic_name);
+
+
+--
+-- Name: index_classifications_on_medical_speciality; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_classifications_on_medical_speciality ON classifications USING btree (medical_speciality);
+
+
+--
+-- Name: index_classifications_on_product_code; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_classifications_on_product_code ON classifications USING btree (product_code);
+
+
+--
+-- Name: index_classifications_on_regulation_number; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_classifications_on_regulation_number ON classifications USING btree (regulation_number);
+
+
+--
+-- Name: index_classifications_on_third_party_review_code; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_classifications_on_third_party_review_code ON classifications USING btree (third_party_review_code);
+
+
+--
+-- Name: index_classifications_on_unclassified_reason_code; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_classifications_on_unclassified_reason_code ON classifications USING btree (unclassified_reason_code);
+
+
+--
 -- Name: index_manufacturers_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -442,6 +545,13 @@ CREATE UNIQUE INDEX index_manufacturers_on_email ON manufacturers USING btree (e
 --
 
 CREATE UNIQUE INDEX index_manufacturers_on_reset_password_token ON manufacturers USING btree (reset_password_token);
+
+
+--
+-- Name: index_medicaldevices_on_manufacturer_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_medicaldevices_on_manufacturer_id ON medicaldevices USING btree (manufacturer_id);
 
 
 --
@@ -505,3 +615,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130927103525');
 INSERT INTO schema_migrations (version) VALUES ('20131009234559');
 
 INSERT INTO schema_migrations (version) VALUES ('20131010054053');
+
+INSERT INTO schema_migrations (version) VALUES ('20131012164630');
+
+INSERT INTO schema_migrations (version) VALUES ('20131013231443');
