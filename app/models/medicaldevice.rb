@@ -3,6 +3,7 @@ class Medicaldevice < ActiveRecord::Base
 
 
 	belongs_to :manufacturer
+	has_many :device_reviews
 
 	mount_uploader :image, ImageUploader
 

@@ -68,6 +68,14 @@
   <strong>Description:</strong>
   <%= @medicaldevice.description %>
 </p>
+<p>
+  Reviews
+ <% @medicaldevice.device_reviews.each do |review| %>
+  <%= review.content %>
+  <%= review.user.email %>
+<% end %>
+  </p>
 
+<%= render partial: 'device_reviews/form' %>
 
 <%= link_to 'Back', medicaldevices_path %>

@@ -1,0 +1,2 @@
+module DeviceReviewsHelper
+end

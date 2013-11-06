@@ -165,6 +165,39 @@ ALTER SEQUENCE classifications_id_seq OWNED BY classifications.id;
 
 
 --
+-- Name: device_reviews; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE device_reviews (
+    id integer NOT NULL,
+    content text,
+    user_id integer,
+    medicaldevice_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: device_reviews_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE device_reviews_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: device_reviews_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE device_reviews_id_seq OWNED BY device_reviews.id;
+
+
+--
 -- Name: manufacturers; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -355,6 +388,13 @@ ALTER TABLE ONLY classifications ALTER COLUMN id SET DEFAULT nextval('classifica
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY device_reviews ALTER COLUMN id SET DEFAULT nextval('device_reviews_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY manufacturers ALTER COLUMN id SET DEFAULT nextval('manufacturers_id_seq'::regclass);
 
 
@@ -401,6 +441,14 @@ ALTER TABLE ONLY admin_users
 
 ALTER TABLE ONLY classifications
     ADD CONSTRAINT classifications_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: device_reviews_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY device_reviews
+    ADD CONSTRAINT device_reviews_pkey PRIMARY KEY (id);
 
 
 --
@@ -534,6 +582,27 @@ CREATE INDEX index_classifications_on_unclassified_reason_code ON classification
 
 
 --
+-- Name: index_device_reviews_on_content; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_device_reviews_on_content ON device_reviews USING btree (content);
+
+
+--
+-- Name: index_device_reviews_on_medicaldevice_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_device_reviews_on_medicaldevice_id ON device_reviews USING btree (medicaldevice_id);
+
+
+--
+-- Name: index_device_reviews_on_user_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_device_reviews_on_user_id ON device_reviews USING btree (user_id);
+
+
+--
 -- Name: index_manufacturers_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -619,3 +688,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131010054053');
 INSERT INTO schema_migrations (version) VALUES ('20131012164630');
 
 INSERT INTO schema_migrations (version) VALUES ('20131013231443');
+
+INSERT INTO schema_migrations (version) VALUES ('20131029060504');
