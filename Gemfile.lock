@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
-  revision: 0e88056ac5d58fb0bbd23d3fe929eac01712d964
+  revision: 9c6c07f74ff515cf38380b014cfede14a4f0eae4
   branch: 3
   specs:
     bootstrap-sass (3.0.0.0)
@@ -332,7 +332,7 @@ DEPENDENCIES
   rmagick
   roo
   rspec-rails (= 2.14.0)
-  sass-rails (~> 4.0.0)
+  sass-rails (= 4.0.0)
   sdoc (= 0.3.20)
   sidekiq
   simple_form!

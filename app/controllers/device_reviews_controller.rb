@@ -36,7 +36,10 @@ class DeviceReviewsController < ApplicationController
   # POST /DeviceReviews.json
   def create
   	@medicaldevice = Medicaldevice.find(params[:device_review][:medicaldevice_id])
+
+  
     @device_review = @medicaldevice.device_reviews.build(device_review_params) if signed_in?
+    @device_review.user = current_user
     puts device_review_params
     puts @device_review.inspect
 

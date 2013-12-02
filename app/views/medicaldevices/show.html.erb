@@ -69,10 +69,11 @@
   <%= @medicaldevice.description %>
 </p>
 <p>
-  Reviews
+  <Strong> Reviews: </Strong>
+</p>
  <% @medicaldevice.device_reviews.each do |review| %>
-  <%= review.content %>
-  <%= review.user.email %>
+  <p> <%= review.content %> </p> 
+ <p>by: <%= review.user.username %> </p>
 <% end %>
   </p>
 
