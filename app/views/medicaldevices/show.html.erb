@@ -1,82 +1,99 @@
 <p id="notice"><%= notice %></p>
 
-<div id="medicaldevice">
+<div id ="container">
+    <div class= "single-device">
+          <div id="medicaldevice">
+            <div class= "col-md-4 col-sx-5">
 
-    <div class="medicaldevice">
-      <%= image_tag @medicaldevice.image.url.to_s %>
+                <div class="device-image">
+                  <% if @medicaldevice.image? %>
+                      <%= image_tag @medicaldevice.image.url.to_s %>
+                      <% else %>
+                      <%= image_tag("default.jpg", :alt => "default image") %>
+                      <% end %> 
+                </div>
+            </div>
+          </div>
+
+                  <div id=" device-desc">
+                    <div class= "col-md-8 col-sx-7">
+
+                      <p>
+                        <strong>Trade name:</strong>
+                        <%= @medicaldevice.trade_name %>
+                      </p>
+
+                       <p>
+                        <strong>Generic name:</strong>
+                        <%= @medicaldevice.generic_name %>
+                      </p>
+                      
+                       <p>
+                        <strong>Description:</strong>
+                        <%= @medicaldevice.description %>
+                      </p>
+
+
+                      <p>
+                        <strong>PMN or PMA number:</strong>
+                        <%= @medicaldevice.pmak_number %>
+                      </p>
+
+                       <p>
+                        <strong>Product code:</strong>
+                        <%= @medicaldevice.product_code %>
+                      </p>
+
+                      <p>
+                        <strong>Manufacturer/Applicant:</strong>
+                        <%= @medicaldevice.applicant %>
+                      </p>
+
+                      <p><strong> Manufacturer Adress: </strong></p>
+
+                      <p>
+                        <strong>Street1:</strong>
+                        <%= @medicaldevice.street1 %>
+                      </p>
+
+                      <p>
+                        <strong>Street2:</strong>
+                        <%= @medicaldevice.street2 %>
+                      </p>
+
+                      <p>
+                        <strong>City:</strong>
+                        <%= @medicaldevice.city %>
+                      </p>
+
+                      <p>
+                        <strong>State:</strong>
+                        <%= @medicaldevice.state %>
+                      </p>
+
+                      <p>
+                        <strong>Zip:</strong>
+                        <%= @medicaldevice.zip %>
+                      </p>
+
+                      <p>
+                        <strong>Advisory committee:</strong>
+                        <%= @medicaldevice.advisory_committee %>
+                      </p>
+                    </div>
+                  </div>
     </div>
 
-  <div class="clear"></div>
+    <p>
+      <Strong> Reviews: </Strong>
+    </p>
+     <% @medicaldevice.device_reviews.each do |review| %>
+      <p> <%= review.content %> </p> 
+     <p>by: <%= review.user.username %> </p>
+    <% end %>
+      </p>
+
+    <%= render partial: 'device_reviews/form' %>
+
+    <%= link_to 'Back', medicaldevices_path %>
 </div>
-
-<p>
-  <strong>Pmak number:</strong>
-  <%= @medicaldevice.pmak_number %>
-</p>
-
-<p>
-  <strong>Applicant:</strong>
-  <%= @medicaldevice.applicant %>
-</p>
-
-<p>
-  <strong>Street1:</strong>
-  <%= @medicaldevice.street1 %>
-</p>
-
-<p>
-  <strong>Street2:</strong>
-  <%= @medicaldevice.street2 %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @medicaldevice.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @medicaldevice.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @medicaldevice.zip %>
-</p>
-
-<p>
-  <strong>Generic name:</strong>
-  <%= @medicaldevice.generic_name %>
-</p>
-
-<p>
-  <strong>Trade name:</strong>
-  <%= @medicaldevice.trade_name %>
-</p>
-
-<p>
-  <strong>Product code:</strong>
-  <%= @medicaldevice.product_code %>
-</p>
-
-<p>
-  <strong>Advisory committee:</strong>
-  <%= @medicaldevice.advisory_committee %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @medicaldevice.description %>
-</p>
-<p>
-  <Strong> Reviews: </Strong>
-</p>
- <% @medicaldevice.device_reviews.each do |review| %>
-  <p> <%= review.content %> </p> 
- <p>by: <%= review.user.username %> </p>
-<% end %>
-  </p>
-
-<%= render partial: 'device_reviews/form' %>
-
-<%= link_to 'Back', medicaldevices_path %>

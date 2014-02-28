@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 	end
 
 	  def home
+	  	@medicaldevices =Medicaldevice.text_search(params[:search]).limit(20)
 	  	@medicaldevices =Medicaldevice.limit(40)
 	  	
 	  end
@@ -13,9 +14,12 @@ class PagesController < ApplicationController
 	  def about
 	  end
 
+	  def show
+	  	@medicaldevices =Medicaldevice.text_search(params[:search]).limit(20)
+	  end
+
 	  def search_results
 	  	results= Post.text_search(search)
-
 	  end
 
 

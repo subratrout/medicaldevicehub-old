@@ -1,4 +1,6 @@
 <%= render 'layouts/search' %>
+
+<% if @medicaldevices.present? %>
 <h1>Listing medicaldevices</h1>
 
 <table>
@@ -26,5 +28,10 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+<div>No devices</div>
+<% end %>
 
 <br>
+
+<%= link_to 'Back', pages_path, :class => 'btn btn-primary' %>
