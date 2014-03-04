@@ -1,2 +1,31 @@
-<h1>Manufacturers#index</h1>
-<p>Find me in app/views/manufacturers/index.html.erb</p>
+<h1>Listing manufacturers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @manufacturers.each do |manufacturer| %>
+      <tr>
+        <td><%= manufacturer.name %></td>
+        <td><%= manufacturer.email %></td>
+        <td><%= manufacturer.encrypted_password %></td>
+        <td><%= link_to 'Show', manufacturer %></td>
+        <td><%= link_to 'Edit', edit_manufacturer_path(manufacturer) %></td>
+        <td><%= link_to 'Destroy', manufacturer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Manufacturer', new_manufacturer_path %>

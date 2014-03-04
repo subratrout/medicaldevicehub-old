@@ -27,9 +27,18 @@
 	                        		<li><%= link_to "Edit Account", edit_user_registration_path %></li>
 	                       			<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 	                      		<% else %>
-	                      			<li><%= link_to "Log in", new_user_session_path %></li>
-	                      			<li><%= link_to "Sign up", new_user_registration_path %></li>	
+	                      			<li><%= link_to "User Log in", new_user_session_path %></li>
+	                      			<li><%= link_to "User Sign up", new_user_registration_path %></li>	
 	                      		<% end %>
+
+                            <% if manufacturer_signed_in? %>
+                            Logged in as Manufacturer <strong><%= current_manufacturer.username %></strong>
+                              <li><%= link_to "Edit Account", edit_manufacturer_registration_path %></li>
+                              <li><%= link_to "Logout", destroy_manufacturer_session_path, method: :delete %></li>
+                            <% else %>
+                              <li><%= link_to "Manufacturer Log in", new_manufacturer_session_path %></li>
+                              <li><%= link_to "Manufacturer Sign up", new_manufacturer_registration_path %></li> 
+                            <% end %>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>

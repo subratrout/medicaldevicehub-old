@@ -215,7 +215,9 @@ CREATE TABLE manufacturers (
     current_sign_in_ip character varying(255),
     last_sign_in_ip character varying(255),
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    name character varying(255),
+    username character varying(255)
 );
 
 
@@ -696,3 +698,7 @@ INSERT INTO schema_migrations (version) VALUES ('20131029060504');
 INSERT INTO schema_migrations (version) VALUES ('20131106041514');
 
 INSERT INTO schema_migrations (version) VALUES ('20140228002553');
+
+INSERT INTO schema_migrations (version) VALUES ('20140304072632');
+
+INSERT INTO schema_migrations (version) VALUES ('20140304080839');

@@ -1,35 +1,46 @@
 <%= render 'layouts/search' %>
 
 <% if @medicaldevices.present? %>
-<h1>Listing medicaldevices</h1>
+
+<h1>Medical Devices Directory</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Device </th>
-      <th>Pmak number</th>
-      <th>Applicant</th>
-      <th>Generic name</th>
+      <th>Device Image </th>
+      <th>Generic Name</th> 
       <th>Trade name</th>
-      <th>Product code</th>
+      <th>Manufacturer</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @medicaldevices.each do |medicaldevice| %>
-      <tr>
-        <td><%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %></td>
-        <td><%= medicaldevice.pmak_number %></td>
-        <td><%= medicaldevice.applicant %></td>
-        <td><%= medicaldevice.generic_name %></td>
-        <td><%= medicaldevice.trade_name %></td>
-        <td><%= medicaldevice.product_code %></td>
-      </tr>
-    <% end %>
+      <% @medicaldevices.each do |medicaldevice| %>
+      
+            <tr height = "50px" class= "<%= cycle('list_line_odd', 'list_line_even') %>">
+              <td width= "80px">
+                <%= image_tag(medicaldevice.image_url, class: 'device-image')%>
+              </td>
+              <td>
+                <%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %>
+              </td>
+              <td>
+                <% if medicaldevice.generic_name.present? %>
+                <%= medicaldevice.trade_name %>
+                <%else %>
+                 <%= link_to medicaldevice.trade_name, medicaldevice_path(medicaldevice)%>
+                 <%end %>
+              </td>
+
+              <td>
+                <%= medicaldevice.applicant %>
+              </td>
+            </tr>
+          <% end %>
   </tbody>
 </table>
 <% else %>
-<div>No devices</div>
+<div>Sorry! No Devices Found. Please Contact Us for More info.</div>
 <% end %>
 
 <br>

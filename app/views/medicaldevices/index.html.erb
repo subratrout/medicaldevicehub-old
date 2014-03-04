@@ -2,39 +2,50 @@
 
 <%= link_to 'Add a new Medical Device', new_medicaldevice_path, :class => 'btn btn-primary'  if manufacturer_signed_in? %>
       
-<h1>Listing Medical Devices</h1>
 <% if @medicaldevices.present? %>
-<table>
-  <thead>
-    <tr>
-      <th>Image </th>
-      <th>Device </th>
-      <th>Applicant/Manufacturer</th>
-      <th>Generic name</th>
-      <th>Trade name</th>
-      <th>PMA/PMN Number</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @medicaldevices.each do |medicaldevice| %>
-      <tr>
-        <td><%= image_tag medicaldevice.image_url%></td>
-        <td><%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %></td>
-        <td><%= medicaldevice.applicant %></td>
-        <td><%= medicaldevice.generic_name %></td>
-        <td><%= medicaldevice.trade_name %></td>
-        <td><%= medicaldevice.pmak_number %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h1>Listing medicaldevices</h1>
 
-<br>
+        <table>
+          <thead>
+            <tr>
+              <th>Device Image </th>
+              <th>Generic Name</th> 
+              <th>Trade name</th>
+              <th>Manufacturer</th>
+            </tr>
+          </thead>
+
+          <tbody>
+              <% @medicaldevices.each do |medicaldevice| %>
+              
+                    <tr height = "60px" class= "<%= cycle('list_line_odd', 'list_line_even') %>">
+                      <td>
+                        <%= image_tag(medicaldevice.image_url, class: 'device-image')%>
+                      </td>
+                      <td>
+                        <%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %>
+                      </td>
+                      <td>
+                        <% if medicaldevice.generic_name.present? %>
+                        <%= medicaldevice.trade_name %>
+                        <%else %>
+                         <%= link_to medicaldevice.trade_name, medicaldevice_path(medicaldevice)%>
+                         <%end %>
+                      </td>
+
+                      <td>
+                        <%= medicaldevice.applicant %>
+                      </td>
+                    </tr>
+                  <% end %>
+          </tbody>
+
+        </table>
 <% else %>
-<div>No Medical Devices Found.</div>
+<div>Sorry! No Devices Found. Please Contact Us for More info.</div>
 <% end %>
 
-</br>
+<br>
 
-<%= link_to 'Back to Medicaldevices', medicaldevices_path, :class => 'btn btn-primary' %>
+<%= link_to 'Back to Home Page', root_path, :class => 'btn btn-primary' %>

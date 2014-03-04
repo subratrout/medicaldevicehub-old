@@ -1,7 +1,6 @@
 Medicaldevicehub::Application.routes.draw do
   
-  get "manufacturers/index"
-  get "manufacturers/show"
+  
   #Active admin
   ActiveAdmin.routes(self)
 
@@ -19,7 +18,7 @@ Medicaldevicehub::Application.routes.draw do
   resources :device_reviews
   
   resources :pages
-  
+  resources :manufacturers
   
 
 
