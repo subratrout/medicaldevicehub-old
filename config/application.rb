@@ -9,6 +9,9 @@ Bundler.require(:default, Rails.env)
 
 module Medicaldevicehub
   class Application < Rails::Application
+
+    # To avail logger output in the console and Heroku
+    config.middleware.use Rails::Rack::LogTailer
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

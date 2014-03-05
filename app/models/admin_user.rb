@@ -3,10 +3,8 @@ class AdminUser < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, 
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:username]
 
-
-attr_accessor :username
 
 
    def self.find_first_by_auth_conditions(warden_conditions)

@@ -3,11 +3,16 @@ class Manufacturer < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:username]
 
   has_many :medicaldevices
 
+ 
+
   validates_presence_of :email
+  validates_uniqueness_of :username, :case_sensitive => false
+
+
 
   def self.find_first_by_auth_conditions(warden_conditions)
       conditions = warden_conditions.dup

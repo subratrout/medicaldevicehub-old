@@ -42,7 +42,7 @@ Devise.setup do |config|
   # modifying a user and when used to authenticate or find a user. Default is :email.
   # config.strip_whitespace_keys = [ :email ]
 
-config.authentication_keys = [ :username ]
+config.authentication_keys = [ :username]
 config.case_insensitive_keys = [ :username ]
 config.strip_whitespace_keys = [ :username ]
 
