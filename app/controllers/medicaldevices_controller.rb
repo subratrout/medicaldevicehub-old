@@ -88,6 +88,6 @@ class MedicaldevicesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def medicaldevice_params
       params.require(:medicaldevice).permit(:pmak_number, :applicant, :street1, :street2, :city, :state, :zip, :generic_name, :trade_name, :product_code, 
-        :advisory_committee, :description, :image, :remove_image)
+        :advisory_committee, :description, :image, :remove_image, :manufacturer_id)
     end
 end

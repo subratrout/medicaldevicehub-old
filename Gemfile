@@ -25,6 +25,7 @@ gem 'sidekiq'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem "figaro", ">= 0.5.3"
 gem 'thin'
+gem 'unf'
 
 
 
