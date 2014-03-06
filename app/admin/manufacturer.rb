@@ -13,6 +13,7 @@ ActiveAdmin.register Manufacturer do
   #  permitted << :other if resource.something?
   #  permitted
   # end
+  permit_params :name, :email
   index do
       column :id
       column :name

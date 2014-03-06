@@ -14,15 +14,15 @@ class DeviceReviewsController < ApplicationController
   # GET /DeviceReviews/1.json
   def show
   	@medicaldevice = Medicaldevice.find(params[:id])
-  	@device_reviews = @medicaldevice.device_reviews
     @device_review = DeviceReview.find(params[:id])
+    @device_reviews = @medicaldevice.device_review
     @device_reviews = DeviceReview.new(key: params[:id])
   end
 
   # GET /DeviceReviews/new
   def new
   	@medicaldevice = Medicaldevice.find(params[:medicaldevice_id])
-    @device_review = DeviceReview.new
+    @device_review = @medicaldevice.DeviceReview.new
   end
 
   # GET /DeviceReviews/1/edit
@@ -38,10 +38,10 @@ class DeviceReviewsController < ApplicationController
   	@medicaldevice = Medicaldevice.find(params[:device_review][:medicaldevice_id])
 
   
-    @device_review = @medicaldevice.device_reviews.build(device_review_params) if signed_in?
+    @device_review = @medicaldevice.device_reviews.create(device_review_params) if signed_in?
     @device_review.user = current_user
-    puts device_review_params
-    puts @device_review.inspect
+    #puts device_review_params
+    #puts @device_review.inspect
 
    respond_to do |format|
         if @device_review.save

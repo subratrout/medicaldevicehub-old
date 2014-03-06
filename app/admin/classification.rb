@@ -1,5 +1,7 @@
 ActiveAdmin.register Classification do
 
+permit_params :medical_speciality, :product_code, :device_generic_name, :device_class, :target_area, :definition
+
 	index do
     	column :medical_speciality
     	column :product_code

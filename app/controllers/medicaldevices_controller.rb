@@ -15,9 +15,8 @@ class MedicaldevicesController < ApplicationController
   # GET /medicaldevices/1.json
   def show
     @medicaldevice = Medicaldevice.find(params[:id])
-    @device_review= current_user.device_reviews.build if signed_in?
-    #@device_review.medicaldevice = @medicaldevice
     @device_review= DeviceReview.new(:medicaldevice => @medicaldevice)
+    @device_review.user= current_user
   end
 
   # GET /medicaldevices/new
