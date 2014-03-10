@@ -8,8 +8,9 @@ class ContactsController < ApplicationController
 	  @contact = Contact.new(secure_params)
 		  if @contact.valid?
 			# TODO save data
+			@contact.update_spreadsheet
 			# TODO send message
-			  flash[:notice] = "Message sent from #{@contact.name}."
+			  flash[:notice] = "Thank you for your message #{@contact.name}. We will contact you soon if needed."
 			  redirect_to root_path
 		  else
 			render :new
