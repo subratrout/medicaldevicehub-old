@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	</head>
+
+
+	<body>
+		<h1>A User has sent message on Medical Device Hub</h1>
+			
+			<p>
+			<strong>This visitor's requested to contact:</strong>
+			</p>
+
+			<p>
+		<strong>Contact Name:<%= @contact.name %></strong> <br/>
+		<strong> Contact Email: <%= @contact.email %></strong><br/>
+			</p>
+
+			<p>
+			<strong> The visitor said:</strong>
+			</p>
+
+			<p>
+			"<%= @contact.content %>"
+			</p>
+	</body>
+</html>

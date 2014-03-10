@@ -9,7 +9,10 @@ class ContactsController < ApplicationController
 		  if @contact.valid?
 			# TODO save data
 			@contact.update_spreadsheet
+
 			# TODO send message
+			UserMailer.contact_email(@contact).deliver
+			
 			  flash[:notice] = "Thank you for your message #{@contact.name}. We will contact you soon if needed."
 			  redirect_to root_path
 		  else
