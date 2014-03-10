@@ -26,6 +26,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem "figaro", ">= 0.5.3"
 gem 'thin'
 gem 'unf'
+gem 'high_voltage', "~> 2.1.0"
 
 
 

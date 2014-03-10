@@ -17,7 +17,6 @@ Medicaldevicehub::Application.routes.draw do
 
   resources :device_reviews
   
-  resources :pages
   resources :manufacturers
   
 
