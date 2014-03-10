@@ -18,6 +18,8 @@ Medicaldevicehub::Application.routes.draw do
   resources :device_reviews
   
   resources :manufacturers
+
+  resources :contacts, only: [:new, :create]
   
 
 

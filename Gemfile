@@ -27,7 +27,7 @@ gem "figaro", ">= 0.5.3"
 gem 'thin'
 gem 'unf'
 gem 'high_voltage', "~> 2.1.0"
-
+gem "activerecord-tableless", "~> 1.0"
 
 
 
