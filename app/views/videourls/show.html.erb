@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @videourl.description %>
+</p>
+
+<p>
+  <strong>Video</strong>
+  <%= @videourl.body_html %>
+</p>
+
+<p>
+  <strong>Title</strong>
+  <%= @videourl.title%>
+</p>
+
+<p>
+  <strong>Medicaldevice id:</strong>
+  <%= @videourl.medicaldevice_id %>
+</p>
+
+<p>
+  <strong>Manufacturer id:</strong>
+  <%= @videourl.manufacturer_id %>
+</p>
+
+<%= link_to 'Edit', edit_videourl_path(@videourl) %> |
+<%= link_to 'Back', videourls_path %>

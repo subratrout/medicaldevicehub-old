@@ -17,7 +17,7 @@ gem 'pg_search', "~> 0.7.0"
 gem 'carrierwave', "~>0.9.0"
 gem 'simple_form'
 gem 'bootstrap-sass', "~> 3.1.1"
-gem 'rmagick'
+#gem 'rmagick'
 gem 'mini_magick'
 gem 'fog'
 gem 'carrierwave_direct'
@@ -29,7 +29,7 @@ gem 'unf'
 gem 'high_voltage', "~> 2.1.0"
 gem 'activerecord-tableless', "~> 1.0"
 gem 'google_drive'
-
+gem 'auto_html'
 
 
 group :test do

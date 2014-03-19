@@ -1,0 +1,18 @@
+<%= simple_form_for(@videourl) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+
+    <%= f.input :title %>
+    <%= f.input :body%>
+    <%= f.input :description %>
+    <%= f.input :medicaldevice_id %>
+    <%= f.input :manufacturer_id %>
+
+
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,48 +1,64 @@
-<%= render 'layouts/search' %>
+<div id="container1">
+          <div class="rotator-box">
+              <a class="rotator" ><img class ="rotator" src ="/assets/welcome1.png" alt="Medical Device Hub logo" ></a>
+          </div>
+        </div>
 
-<% if @medicaldevices.present? %>
+        <div class="rotator-bottom">
+        </div>
 
-<h1>Medical Devices Directory</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Device Image </th>
-      <th>Generic Name</th> 
-      <th>Trade name</th>
-      <th>Manufacturer</th>
-    </tr>
-  </thead>
 
-  <tbody>
-      <% @medicaldevices.each do |medicaldevice| %>
-      
-            <tr height = "50px" class= "<%= cycle('list_line_odd', 'list_line_even') %>">
-              <td width= "80px">
-                <%= image_tag(medicaldevice.image_url, class: 'device-image')%>
-              </td>
-              <td>
-                <%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %>
-              </td>
-              <td>
-                <% if medicaldevice.generic_name.present? %>
-                <%= medicaldevice.trade_name %>
-                <%else %>
-                 <%= link_to medicaldevice.trade_name, medicaldevice_path(medicaldevice)%>
-                 <%end %>
-              </td>
+<div class= "search-box">
+  <%= render 'layouts/search' %>
+</div>
 
-              <td>
-                <%= medicaldevice.applicant %>
-              </td>
-            </tr>
-          <% end %>
-  </tbody>
-</table>
-<% else %>
-<div>Sorry! No Devices Found. Please Contact Us for More info.</div>
-<% end %>
+<div id="device-box">
 
-<br>
+      <% if @medicaldevices.present? %>
 
-<%= link_to 'Back', page_path('index'), :class => 'btn btn-primary' %>
+      <h1>Medical Devices Directory</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Device Image </th>
+            <th>Generic Name</th> 
+            <th>Trade name</th>
+            <th>Manufacturer</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            <% @medicaldevices.each do |medicaldevice| %>
+            
+                  <tr height = "50px" class= "<%= cycle('list_line_odd', 'list_line_even') %>">
+                    <td width= "80px">
+                      <%= image_tag(medicaldevice.image_url, class: 'device-image')%>
+                    </td>
+                    <td>
+                      <%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %>
+                    </td>
+                    <td>
+                      <% if medicaldevice.generic_name.present? %>
+                      <%= medicaldevice.trade_name %>
+                      <%else %>
+                       <%= link_to medicaldevice.trade_name, medicaldevice_path(medicaldevice)%>
+                       <%end %>
+                    </td>
+
+                    <td>
+                      <%= medicaldevice.applicant %>
+                    </td>
+                  </tr>
+                <% end %>
+        </tbody>
+      </table>
+      <% else %>
+      <div>Sorry! No Devices Found. Please Contact Us for More info.</div>
+      <% end %>
+
+      <br>
+
+      <%= link_to 'Back', page_path('index'), :class => 'btn btn-primary' %>
+</div>

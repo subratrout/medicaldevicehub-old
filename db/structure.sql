@@ -368,6 +368,42 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
+-- Name: videourls; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE videourls (
+    id integer NOT NULL,
+    description character varying(255),
+    body_html character varying(255),
+    medicaldevice_id integer,
+    manufacturer_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    title character varying(255),
+    body character varying(255)
+);
+
+
+--
+-- Name: videourls_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE videourls_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: videourls_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE videourls_id_seq OWNED BY videourls.id;
+
+
+--
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -421,6 +457,13 @@ ALTER TABLE ONLY pg_search_documents ALTER COLUMN id SET DEFAULT nextval('pg_sea
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY videourls ALTER COLUMN id SET DEFAULT nextval('videourls_id_seq'::regclass);
 
 
 --
@@ -485,6 +528,14 @@ ALTER TABLE ONLY pg_search_documents
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: videourls_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY videourls
+    ADD CONSTRAINT videourls_pkey PRIMARY KEY (id);
 
 
 --
@@ -702,3 +753,7 @@ INSERT INTO schema_migrations (version) VALUES ('20140228002553');
 INSERT INTO schema_migrations (version) VALUES ('20140304072632');
 
 INSERT INTO schema_migrations (version) VALUES ('20140304080839');
+
+INSERT INTO schema_migrations (version) VALUES ('20140312060359');
+
+INSERT INTO schema_migrations (version) VALUES ('20140312070617');

@@ -1,6 +1,8 @@
 Medicaldevicehub::Application.routes.draw do
   
   
+  resources :videourls
+
   #Active admin
   ActiveAdmin.routes(self)
 
@@ -20,6 +22,13 @@ Medicaldevicehub::Application.routes.draw do
   resources :manufacturers
 
   resources :contacts, only: [:new, :create]
+
+  resources :medicaldevices do
+    resources :videourls
+  end
+  resources :manufacturers do
+    resources :videourls
+  end
   
 
 

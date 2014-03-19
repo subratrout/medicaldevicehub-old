@@ -28,5 +28,8 @@ module Medicaldevicehub
     # config.i18n.default_locale = :de
     config.assets.initialize_on_precompile = false
     config.assets.precompile+=%w(*.png *.jpg *.jpeg *.gif)
+
+    # To generate full controller command
+    config.app_generators.scaffold_controller = :scaffold_controller
   end
 end

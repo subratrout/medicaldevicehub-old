@@ -6,6 +6,7 @@ class Manufacturer < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:username]
 
   has_many :medicaldevices
+  has_many :videourls
 
  
 

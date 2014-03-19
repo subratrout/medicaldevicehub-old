@@ -1,51 +1,53 @@
 <%= render 'layouts/search' %>
 
 <%= link_to 'Add a new Medical Device', new_medicaldevice_path, :class => 'btn btn-primary'  if manufacturer_signed_in? %>
-      
-<% if @medicaldevices.present? %>
 
-<h1>Listing medicaldevices</h1>
+<div id="device-box">     
+      <% if @medicaldevices.present? %>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Device Image </th>
-              <th>Generic Name</th> 
-              <th>Trade name</th>
-              <th>Manufacturer</th>
-            </tr>
-          </thead>
+      <h1>Listing medicaldevices</h1>
 
-          <tbody>
-              <% @medicaldevices.each do |medicaldevice| %>
-              
-                    <tr height = "60px" class= "<%= cycle('list_line_odd', 'list_line_even') %>">
-                      <td>
-                        <%= image_tag(medicaldevice.image_url, class: 'device-image')%>
-                      </td>
-                      <td>
-                        <%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %>
-                      </td>
-                      <td>
-                        <% if medicaldevice.generic_name.present? %>
-                        <%= medicaldevice.trade_name %>
-                        <%else %>
-                         <%= link_to medicaldevice.trade_name, medicaldevice_path(medicaldevice)%>
-                         <%end %>
-                      </td>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Device Image </th>
+                    <th>Generic Name</th> 
+                    <th>Trade name</th>
+                    <th>Manufacturer</th>
+                  </tr>
+                </thead>
 
-                      <td>
-                        <%= medicaldevice.applicant %>
-                      </td>
-                    </tr>
-                  <% end %>
-          </tbody>
+                <tbody>
+                    <% @medicaldevices.each do |medicaldevice| %>
+                    
+                          <tr height = "60px" class= "<%= cycle('list_line_odd', 'list_line_even') %>">
+                            <td>
+                              <%= image_tag(medicaldevice.image_url, class: 'device-image')%>
+                            </td>
+                            <td>
+                              <%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %>
+                            </td>
+                            <td>
+                              <% if medicaldevice.generic_name.present? %>
+                              <%= medicaldevice.trade_name %>
+                              <%else %>
+                               <%= link_to medicaldevice.trade_name, medicaldevice_path(medicaldevice)%>
+                               <%end %>
+                            </td>
 
-        </table>
-<% else %>
-<div>Sorry! No Devices Found. Please Contact Us for More info.</div>
-<% end %>
+                            <td>
+                              <%= medicaldevice.applicant %>
+                            </td>
+                          </tr>
+                        <% end %>
+                </tbody>
 
-<br>
+              </table>
+      <% else %>
+      <div>Sorry! No Devices Found. Please Contact Us for More info.</div>
+      <% end %>
 
-<%= link_to 'Back to Home Page', root_path, :class => 'btn btn-primary' %>
+      <br>
+
+      <%= link_to 'Back to Home Page', root_path, :class => 'btn btn-primary' %>
+</div>

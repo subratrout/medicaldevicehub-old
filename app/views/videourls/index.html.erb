@@ -1,0 +1,33 @@
+<h1>Listing videourls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Video</th>
+      <th>Medicaldevice</th>
+      <th>Manufacturer</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videourls.each do |videourl| %>
+      <tr>
+        <td><%= videourl.description %></td>
+        <td><%= videourl.body_html %></td>
+        <td><%= videourl.medicaldevice_id %></td>
+        <td><%= videourl.manufacturer_id %></td>
+        <td><%= link_to 'Show', videourl %></td>
+        <td><%= link_to 'Edit', edit_videourl_path(videourl) %></td>
+        <td><%= link_to 'Destroy', videourl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Videourl', new_videourl_path %>

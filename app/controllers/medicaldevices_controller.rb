@@ -89,4 +89,13 @@ class MedicaldevicesController < ApplicationController
       params.require(:medicaldevice).permit(:pmak_number, :applicant, :street1, :street2, :city, :state, :zip, :generic_name, :trade_name, :product_code, 
         :advisory_committee, :description, :image, :remove_image, :manufacturer_id)
     end
+
+    def set_videourl
+      @videourl = Videourl.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def videourl_params
+      params.require(:videourl).permit(:description, :body_html, :medicaldevice_id, :manufacturer_id, :title, :body)
+    end
 end

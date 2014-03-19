@@ -1,9 +1,12 @@
 class Medicaldevice < ActiveRecord::Base
 
-
+	validates :trade_name, :uniqueness => true
+	validates :applicant, :presence => true
+	validates_presence_of :trade_name, :unless => :generic_name?
 
 	belongs_to :manufacturer
 	has_many :device_reviews
+  has_many :videourls
 
 	mount_uploader :image, ImageUploader
 
@@ -30,14 +33,6 @@ class Medicaldevice < ActiveRecord::Base
 		end
 	end
 
-	#def self.search(search)
-
-		#if search
-	  		#find(:all, :conditions => ['generic_name LIKE ?', "%#{search}%"])
-	  #	else
-	  		# @medicaldevices = Medicaldevice.limit(40)
-	  #	end
-	# end
 
 
 

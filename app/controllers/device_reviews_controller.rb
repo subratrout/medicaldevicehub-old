@@ -17,6 +17,8 @@ class DeviceReviewsController < ApplicationController
     @device_review = DeviceReview.find(params[:id])
     @device_reviews = @medicaldevice.device_review
     @device_reviews = DeviceReview.new(key: params[:id])
+    @videourls = @medicaldevice.videourl
+    @videourls = Videourl.find(videourl_params)
   end
 
   # GET /DeviceReviews/new

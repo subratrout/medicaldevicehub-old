@@ -32,21 +32,30 @@
                                               <li><%= link_to "Logout", destroy_manufacturer_session_path, method: :delete %></li>
                                             <% else %>
                                               <li><%= link_to "Manufacturer Log in", new_manufacturer_session_path %></li>
-                                              <li><%= link_to "Manufacturer? Contact Us", new_manufacturer_registration_path %></li> 
+                                              <li><%= link_to "Join as Manufacturer? Contact Us", new_contact_path %></li> 
                                             <% end %>
                     </ul>
                   <!-- /.navbar-collapse -->
-                
 
-                                        <div id="nav" class="navigation-menu">
-                                          <ul class=" ">
-                                            <li><%= link_to "Home", root_path %></li>
-                                            <li><%= link_to "UDI", root_path %></li>
-                                            <li><%= link_to "About" , page_path('about') %></li>
-                                            <li><%= link_to "Contact Us", new_contact_path %></li>   
-                                          </ul>
-                                        </div>
+                      
               
            </div>
+
         </div>
 
+                                      <div class="menu-box">
+                                            <div id=" " >
+                                                <nav class="main-menu">
+                                                  <ul>
+                                                    <li><%= link_to "Home", root_path %></li>
+                                                    <li><%= link_to "UDI", root_path %></li>
+                                                    <li><%= link_to "MDR", root_path %></li>
+                                                    <li><%= link_to "MMA", root_path %></li>
+                                                    <li><%= link_to "About Us" , page_path('about') %></li>
+                                                    <li><%= link_to "Contact Us", new_contact_path %></li>   
+                                                  </ul>
+                                              </nav>
+                                            </div>
+                                      </div>
+
+        
