@@ -1,8 +1,15 @@
-<div id="container1">
+<div id="container2">
           <div class="rotator-box">
-              <a class="rotator" ><img class ="rotator" src ="/assets/welcome1.png" alt="Medical Device Hub logo" ></a>
+            <a class="rotator" ><img class ="rotator" src ="/assets/welcome2.png" alt="device welcome" ></a>
+            <div class="arrow-button">
+                <ul> 
+                  <li>140,250 Listed Medical devices </li>
+                  <li>230 How to Use Instructions </li>
+                  <li>136 How to Use Videos </li>
+                </ul>
+            </div>
           </div>
-        </div>
+</div>
 
         <div class="rotator-bottom">
         </div>
@@ -34,7 +41,7 @@
             
                   <tr height = "50px" class= "<%= cycle('list_line_odd', 'list_line_even') %>">
                     <td width= "80px">
-                      <%= image_tag(medicaldevice.image_url, class: 'device-image')%>
+                      <%= image_tag(medicaldevice.image_url, class: 'deviceimage-thumbnail')%>
                     </td>
                     <td>
                       <%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %>

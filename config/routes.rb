@@ -12,7 +12,13 @@ Medicaldevicehub::Application.routes.draw do
 
 
   root :to => 'pages#index'
+
   get 'about' => 'pages#about'
+  get 'mdr' => 'pages#mdr'
+  get 'mma' => 'pages#mma'
+  get 'privacy' => 'pages#privacy'
+  get 'tos' => 'pages#tos'
+  get 'udi' => 'pages#udi'
 
 
   resources :medicaldevices, except: [:destroy, :edit, :update] 
