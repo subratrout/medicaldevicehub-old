@@ -18,31 +18,20 @@
                           </div>
                         
 
-                  <div id=" device-desc">
-                      <div class= "col-md-8 col-sx-7">
-                         <h4><strong>TRADE NAME:</strong></h4> 
-                          <p>
-                            <%= @medicaldevice.trade_name %>
-                          </p>
+                    <div class= "col-md-8 col-sx-7">
                           
-
-                         
-                        <h4><strong>GENERIC NAME:</strong></h4>
-                        <p>
-                          <%= @medicaldevice.generic_name %>
-                        </p>
+                        <h5><strong>Trade Name:</strong></h5> 
+                        <p><h4><%= @medicaldevice.trade_name %></h4></p>
+                                              
+                        <h5><strong>Generic Name:</strong></h5>
+                        <p><h4> <%= @medicaldevice.generic_name %> </h4></p>
                         
                     
-                        <h4><strong>MANUFACTURER/APPLICANT:</strong></h4>
-                        <p>
-                          <%= @medicaldevice.applicant %>
-                        </p>
+                        <h5><strong>Manufacturer/Applicant:</strong></h5>
+                        <p><%= @medicaldevice.applicant %></p>
 
-                        <h4><strong>DESCRIPTION:</strong></h4>
-                         <p>
-                          <%= @medicaldevice.description %>
-                        </p>
-
+                        <h4><strong>Description:</strong></h4>
+                        <p><%= @medicaldevice.description %></p>
 
                         <p>
                           <strong>PMN or PMA number:</strong>
@@ -87,8 +76,19 @@
                           <strong>Advisory committee:</strong>
                           <%= @medicaldevice.advisory_committee %>
                         </p>
-                    </div>
                   </div>
+
+              <div class="col-md-8">
+                <p>
+                    <Strong><h3> Device Video: </h3></Strong>
+                </p>
+              </div>
+
+              <div class="col-md-4">
+                <p>
+                    <Strong><h5> Related Devices Videos: </h5></Strong>
+                </p>
+
 
                     <div class="device-video">
                         <% @medicaldevice.videourls.each do |videourl| %>
@@ -100,16 +100,25 @@
                         <% end %>
                     </div>
 
-                  <p>
-                    <Strong> Device Reviews: </Strong>
+              </div>
+              
+              <div class="col-md-8">
+
+                 <p>
+                    <Strong><h3> Device Reviews: </h3></Strong>
                   </p>
                    <% @medicaldevice.device_reviews.each do |review| %>
                     <p> <%= review.content %> </p> 
                    <p>by: <%= review.user.username %> </p>
                   <% end %>
-                    </p>
 
-                <%= render partial: 'device_reviews/form' %>
+                    <%= render partial: 'device_reviews/form' %>
 
-    <%= link_to 'Back to Home', root_path %>
+              </div>
+    <div>
+        <%= link_to 'Back to Home', root_path %>
+    </div>
+          
+  
   </div> <!-- end container>
+
