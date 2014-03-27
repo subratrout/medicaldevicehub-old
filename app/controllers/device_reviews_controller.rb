@@ -50,7 +50,7 @@ class DeviceReviewsController < ApplicationController
           format.html { redirect_to @medicaldevice, notice: 'Review for device was successfully created.' }
           format.json { render action: 'show', status: :created, location: @device_review }
         else
-          format.html{render action: 'new'}
+          format.html{redirect_to @medicaldevice, notice: 'Review for device was not created.'}
         end         
       end
     end

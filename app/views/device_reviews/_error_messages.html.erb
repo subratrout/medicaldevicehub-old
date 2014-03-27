@@ -1,0 +1,12 @@
+<% if @device_review.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-error">
+      The form contains <%= pluralize(@device_review.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @device_review.errors.full_messages.each do |msg| %>
+      <li>* <%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

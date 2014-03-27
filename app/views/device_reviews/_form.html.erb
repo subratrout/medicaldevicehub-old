@@ -2,12 +2,12 @@
 	<strong>Add a Review</strong>
  </p>
 
- <%= simple_form_for @device_review do |f| %>
-  <%= f.hidden_field :medicaldevice_id %>
-  <%= f.hidden_field :user_id %>
-  <%= f.input :content, as: :text, :input_html => {:rows => 3} %>
+ 	<%= simple_form_for @device_review do |f| %>
+	<%= render partial: 'device_reviews/error_messages' %>
+  	<%= f.hidden_field :medicaldevice_id %>
+  	<%= f.hidden_field :user_id %>
+  	<%= f.input :content, as: :text, :input_html => {:rows => 3} %>
   <div class="form-actions">
   	<%= f.submit "Create Device Review", class: "create-review btn btn-primary" %>
+		<% end %>
   </div>
-  <%= @device_review.errors.full_messages %>
-<% end %>

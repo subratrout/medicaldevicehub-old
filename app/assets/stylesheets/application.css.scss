@@ -102,6 +102,11 @@
 	list-style-type:none;
 	padding:0px;
 	margin:0px;
+	position:absolute;
+	display:inline-block;
+	white-space:nowrap;
+	width:1140px;
+
 }
 
 #container2 ul li {
@@ -109,17 +114,16 @@
 	background-image: url('/assets/arrow_button.png');
 	background-repeat: no-repeat;
 	padding-left: 24px;
-	float:left;
 	font-size: 18px;
 	width: 360px;
 	padding-top: 50px;
 	background-position: 0px 50px;
 	margin-left:120px;
+	display:inline-block;
 }
 
-.arrow_button {
-	margin: 0px auto;
-	width:980px;
+
+.info {
 	position:absolute;
 }
 
