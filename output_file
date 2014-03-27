@@ -1,0 +1,38 @@
+
++BRAKEMAN REPORT+
+
+Application path: /Users/MacBook/rails_projects/medicaldevicehub
+Rails version: 4.0.3
+Brakeman version: 2.4.3
+Started at 2014-03-25 19:09:08 -0700
+Duration: 2.818562 seconds
+Checks run: BasicAuth, ContentTag, CrossSiteScripting, DefaultRoutes, Deserialize, DetailedExceptions, DigestDoS, EscapeFunction, Evaluation, Execute, FileAccess, FilterSkipping, ForgerySetting, HeaderDoS, I18nXSS, JRubyXML, JSONParsing, LinkTo, LinkToHref, MailTo, MassAssignment, ModelAttrAccessible, ModelAttributes, ModelSerialize, NestedAttributes, NumberToCurrency, QuoteTableName, Redirect, Render, RenderDoS, ResponseSplitting, SQL, SSLVerify, SafeBufferManipulation, SanitizeMethods, SelectTag, SelectVulnerability, Send, SendFile, SessionSettings, SimpleFormat, SingleQuotes, SkipBeforeFilter, StripTags, SymbolDoS, TranslateBug, UnsafeReflection, ValidationRegex, WithoutProtection, YAMLParsing
+
+
++SUMMARY+
+
++-------------------+-------+
+| Scanned/Reported  | Total |
++-------------------+-------+
+| Controllers       | 7     |
+| Models            | 9     |
+| Templates         | 43    |
+| Errors            | 0     |
+| Security Warnings | 1 (1) |
++-------------------+-------+
+
++-----------------+-------+
+| Warning Type    | Total |
++-----------------+-------+
+| Session Setting | 1     |
++-----------------+-------+
+
+
++SECURITY WARNINGS+
+
++------------+-------+--------+-----------------+----------------------------->>
+| Confidence | Class | Method | Warning Type    | Message                     >>
++------------+-------+--------+-----------------+----------------------------->>
+| High       |       |        | Session Setting | Session secret should not be>>
++------------+-------+--------+-----------------+----------------------------->>
+

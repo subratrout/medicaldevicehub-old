@@ -8,8 +8,8 @@
 			 				<%= form.error_notification %>
 			 				<%= form.input :name, autofocus: true %>
 			 				<%= form.input :email %>
-			 				<%= form.input :content, as: :text %>
-			 				<%= form.button :submit, 'Submit', class: 'submit' %>
+			 				<%= form.input :content, as: :text, :input_html => {:rows => 4} %>
+			 				<%= form.button :submit, 'Submit', class: 'btn btn-primary' %>
 			 		<% end %>
 				</div>
 	</div>

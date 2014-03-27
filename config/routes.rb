@@ -19,6 +19,7 @@ Medicaldevicehub::Application.routes.draw do
   get 'privacy' => 'pages#privacy'
   get 'tos' => 'pages#tos'
   get 'udi' => 'pages#udi'
+  get 'contacts' => 'contacts#new'
 
 
   resources :medicaldevices, except: [:destroy, :edit, :update] 

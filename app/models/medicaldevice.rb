@@ -5,8 +5,8 @@ class Medicaldevice < ActiveRecord::Base
 	validates_presence_of :trade_name, :unless => :generic_name?
 
 	belongs_to :manufacturer
-	has_many :device_reviews
-  has_many :videourls
+	has_many :device_reviews, :dependent => :destroy
+  has_many :videourls, :dependent => :destroy
 
 	mount_uploader :image, ImageUploader
 

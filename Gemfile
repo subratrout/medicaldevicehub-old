@@ -41,7 +41,7 @@ group :test do
 end
 
 group :development do
-
+	gem 'brakeman', :require => false
 end
 
 group :doc do
