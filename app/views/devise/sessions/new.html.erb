@@ -10,29 +10,31 @@
 		 </div>
 		  
 		  <div class="panel-body">
-		    <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		  		<div class="col-md-6">
+				    <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-		      <div class="form-group">
-		        <%= f.label :username %>
-		        <%= f.input_field :username, class: "form-control", :autofocus => true %>
-		      </div>
+				      <div class="form-group">
+				        <%= f.label :username %>
+				        <%= f.input_field :username, class: "form-control", :autofocus => true %>
+				      </div>
 
-		      <div class="form-group">
-		        <%= f.label :password %>
-		        <%= f.password_field :password, class: "form-control" %>
-		      </div>
+				      <div class="form-group">
+				        <%= f.label :password %>
+				        <%= f.password_field :password, class: "form-control" %>
+				      </div>
 
-		      <div class="form-group">
-		        <div class="checkbox">
-		          <%= f.check_box :remember_me %>
-		          <%= f.label :remember_me %>
-		        </div>
-		      </div>
+				      <div class="form-group">
+				        <div class="checkbox">
+				          <%= f.check_box :remember_me %>
+				          <%= f.label :remember_me %>
+				        </div>
+				      </div>
 
-		      <div class="form-group">
-		        <%= f.submit "Sign in", class: "btn btn-primary" %>
-		      </div>
-		    <% end %>
+				      <div class="form-group">
+				        <%= f.submit "Sign in", class: "btn btn-primary" %>
+				      </div>
+				    <% end %>
+				</div>
 		  </div>
 		  
 		  <div class="panel-footer">
