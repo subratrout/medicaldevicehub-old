@@ -10,14 +10,11 @@ class VideourlsController < ApplicationController
   # GET /videourls/1
   # GET /videourls/1.json
   def show
+    @videourl= @medicaldevice.videourls.first
   end
 
   # GET /videourls/new
   def new
-    #@medicaldevice = Medicaldevice.find(params[:medicaldevice_id])
-    #@manufacturer = Manufacturer.find(params[:manufacturer_id])
-    #@medicaldevice= current_medicaldevice
-    #@manufacturer = current_manufacturer
     @videourl = Videourl.new
   end
 
@@ -71,6 +68,7 @@ class VideourlsController < ApplicationController
     videourl.auto_html_prepare
     render :text => videourl.body_html
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

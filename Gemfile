@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.0.0"
+ruby "2.1.1"
 
 gem 'rails', '4.0.3'
 gem 'jquery-rails', '3.0.4'
@@ -30,7 +30,7 @@ gem 'high_voltage', "~> 2.1.0"
 gem 'activerecord-tableless', "~> 1.0"
 gem 'google_drive'
 gem 'auto_html'
-
+gem 'friendly_id'
 
 group :test do
 	gem 'rspec-rails','2.14.0'

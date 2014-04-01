@@ -45,18 +45,19 @@
       <div class="row">
               <div class="col-md-8 col-sx-7 device-video">
                 <p>
-                    <Strong><h3> Device Video: </h3></Strong>
+                    <Strong><h3> Watch How-To Video: </h3></Strong>
                     
                      <div class="">
                         <% if @medicaldevice.videourls.present? %>
                                     
-                        <% @medicaldevice.videourls.each do |videourl| %>
+                           <% @medicaldevice.videourls.each do |videourl| %>
                           <tr>
                             <td><%= videourl.title %></td>
                             <td><%= videourl.body_html %></td>
                             <td><%= videourl.description %></td>
                           </tr>
                         <% end %>
+                       
                         <% else %>
                         <div class="default-video-image">
                             <%= image_tag("default-video.png", :alt => "default video image") %>

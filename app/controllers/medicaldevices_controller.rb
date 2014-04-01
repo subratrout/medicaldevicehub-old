@@ -14,9 +14,10 @@ class MedicaldevicesController < ApplicationController
   # GET /medicaldevices/1
   # GET /medicaldevices/1.json
   def show
-    @medicaldevice = Medicaldevice.find(params[:id])
+    @medicaldevice
     @device_review= DeviceReview.new(:medicaldevice => @medicaldevice)
     @device_review.user= current_user
+    @videourl= @medicaldevice.videourls.first
   end
 
   # GET /medicaldevices/new
@@ -76,7 +77,7 @@ class MedicaldevicesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_medicaldevice
-      @medicaldevice = Medicaldevice.find(params[:id])
+      @medicaldevice = Medicaldevice.friendly.find(params[:id])
     end
 
     def correct_manufacturer
@@ -87,7 +88,7 @@ class MedicaldevicesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def medicaldevice_params
       params.require(:medicaldevice).permit(:pmak_number, :applicant, :street1, :street2, :city, :state, :zip, :generic_name, :trade_name, :product_code, 
-        :advisory_committee, :description, :image, :remove_image, :manufacturer_id)
+        :advisory_committee, :description, :image, :remove_image, :manufacturer_id, :slug)
     end
 
     def set_videourl

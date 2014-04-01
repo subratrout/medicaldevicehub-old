@@ -9,6 +9,8 @@ Medicaldevicehub::Application.routes.draw do
   #Devise
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users, :manufacturers
+  #devise_for :admin_users
+
 
 
   root :to => 'pages#index'

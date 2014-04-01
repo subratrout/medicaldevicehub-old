@@ -143,6 +143,8 @@ GEM
     formatador (0.2.4)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
+    friendly_id (5.0.3)
+      activerecord (>= 4.0.0)
     fssm (0.2.10)
     google_drive (0.3.7)
       nokogiri (>= 1.4.4, != 1.5.2, != 1.5.1)
@@ -339,6 +341,7 @@ DEPENDENCIES
   factory_girl_rails (= 4.2.1)
   figaro (>= 0.5.3)
   fog
+  friendly_id
   google_drive
   high_voltage (~> 2.1.0)
   jbuilder (~> 1.2)

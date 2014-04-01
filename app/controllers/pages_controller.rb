@@ -3,15 +3,15 @@ class PagesController < ApplicationController
 
 	def index
 		#@medicaldevices =Medicaldevice.text_search(params[:search]).limit(20)
-		#@medicaldevices = Medicaldevice.limit(40)
+		@medicaldevices =Medicaldevice.limit(100)
     	@medicaldevices = Medicaldevice.text_search(params[:query]).page(params[:page])
     	@uploader = Medicaldevice.new.image
     	@uploader.success_action_redirect = @medicaldevice
 	end
 
 	  def home
-	  	@medicaldevices =Medicaldevice.text_search(params[:search]).limit(20)
-	  	@medicaldevices =Medicaldevice.limit(40)
+	  	@medicaldevices =Medicaldevice.text_search(params[:search]).limit(40)
+	  	@medicaldevices =Medicaldevice.limit(100)
 	  	
 	  end
 
