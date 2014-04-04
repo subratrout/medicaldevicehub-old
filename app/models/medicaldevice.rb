@@ -1,6 +1,4 @@
 class Medicaldevice < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :trade_or_generic_name, use: :slugged
 
 	validates :trade_name, :uniqueness => true
 	validates :applicant, :presence => true
@@ -35,26 +33,16 @@ class Medicaldevice < ActiveRecord::Base
 		end
 	end
 
-  def trade_or_generic_name
-    if 
-      trade_name ==''
-      "#{id}-#{generic_name}"
-    else
-      "#{trade_name}"
-    end
-    save!
-  end
+ def to_param
+  if trade_name.present?
+   "#{id}-#{trade_name.parameterize}"
+ else
+   "#{id}-#{generic_name.parameterize}"
+   end
+end
 
-  def should_generate_new_friendly_id?
-    new_record? || slug.blank?
-  end
-  
-  def slug_candidates
-    [
-      :trade_name,
-      [:trade_name, :generic_name]
-    ]
-  end
+
+
 
 
 

@@ -7,8 +7,8 @@ class CreateVideourls < ActiveRecord::Migration
       t.references :manufacturer
 
       t.timestamps
-    end
-  end
+        end
+   end
 
   def down
   	drop_table :videourls

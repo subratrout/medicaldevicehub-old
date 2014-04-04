@@ -14,23 +14,25 @@ class MedicaldevicesController < ApplicationController
   # GET /medicaldevices/1
   # GET /medicaldevices/1.json
   def show
-    @medicaldevice
+    @medicaldevice = Medicaldevice.find(params[:id])
     @device_review= DeviceReview.new(:medicaldevice => @medicaldevice)
     @device_review.user= current_user
-    @videourl= @medicaldevice.videourls.first
+    current_medicaldevice = @medicaldevice
+    @videourls = @medicaldevice.videourls
+    device_reviews= @medicaldevice.device_reviews
   end
 
   # GET /medicaldevices/new
   def new
     @medicaldevice = Medicaldevice.new
     @medicaldevices = Medicaldevice.new(key: params[:key])
+    @videourl = @medicaldeivce.Videourl.new(videourl_params)
   end
 
   # GET /medicaldevices/1/edit
   def edit
-    #@medicaldevice = Medicaldevice.find(params[:id])
-    #@uploader = Medicaldevice.new.image
-    #@uploader.success_action_redirect = @medicaldevice
+    @medicaldevice = Medicaldevice.find(params[:id])
+    @videourl = @medicaldeivce.Videourl.new(videourl_params)
   end
 
   # POST /medicaldevices
@@ -73,11 +75,12 @@ class MedicaldevicesController < ApplicationController
     end
   end
 
+ 
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_medicaldevice
-      @medicaldevice = Medicaldevice.friendly.find(params[:id])
+      @medicaldevice = Medicaldevice.find(params[:id])
     end
 
     def correct_manufacturer

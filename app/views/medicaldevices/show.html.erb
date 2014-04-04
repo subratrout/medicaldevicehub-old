@@ -48,21 +48,17 @@
                     <Strong><h3> Watch How-To Video: </h3></Strong>
                     
                      <div class="">
-                        <% if @medicaldevice.videourls.present? %>
-                                    
-                           <% @medicaldevice.videourls.each do |videourl| %>
-                          <tr>
-                            <td><%= videourl.title %></td>
-                            <td><%= videourl.body_html %></td>
-                            <td><%= videourl.description %></td>
-                          </tr>
-                        <% end %>
                        
-                        <% else %>
-                        <div class="default-video-image">
-                            <%= image_tag("default-video.png", :alt => "default video image") %>
-                        </div>
+                       <% if @medicaldevice.videourls.any? %>
+                                    
+                              <%= render @medicaldevice.videourls.last %>
+                       
+                          <% else %>
+                               <div class="default-video-image">
+                                      <%= image_tag("default-video.png", :alt => "default video image") %>
+                               </div>
                           <% end %> 
+                          
                     </div>
                 </p>
               </div>
@@ -77,17 +73,17 @@
               <div class="row">
                 <div class="col-md-8 col-sx-7">
 
-                 <p>
+                  <p>
                     <Strong><h3> Device Reviews: </h3></Strong>
                   </p>
                   <ol>
                    <% @medicaldevice.device_reviews.each do |review| %>
-                <li>
-                   <p>By: <%= review.user.username %> </p>
-                   <p> <%= review.content %> </p> 
-                  <% end %>
-                </li>
-                </ol>
+                      <li>
+                         <p>By: <%= review.user.username %> </p>
+                         <p> <%= review.content %> </p> 
+                        <% end %>
+                      </li>
+                  </ol>
 
                     <%= render partial: 'device_reviews/form' %>
                   </div>

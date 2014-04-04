@@ -25,7 +25,8 @@ class VideourlsController < ApplicationController
   # POST /videourls
   # POST /videourls.json
   def create
-    @videourl = Videourl.new(videourl_params)
+    @medicaldevice = Medicaldevice.find(params[:id])
+    @videourl = @medicaldeivce.Videourl.new(videourl_params)
 
     respond_to do |format|
       if @videourl.save
@@ -74,6 +75,11 @@ class VideourlsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_videourl
       @videourl = Videourl.find(params[:id])
+    end
+
+    def correct_videourl
+      @videourl = correct_medicaldevice.videourls.find_by(id: params[:id])
+      redirect_to videourls_path, notice: "Not authorized to edit this review" if @videourls.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

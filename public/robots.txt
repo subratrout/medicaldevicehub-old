@@ -4,4 +4,6 @@
 # User-agent: *
 # Disallow: /
 
-Disallow: /admins/
+Disallow: admin/*
+
+Sitemap: http://www.medicaldevicehub.com/sitemap.xml.gz

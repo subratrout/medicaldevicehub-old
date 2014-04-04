@@ -261,7 +261,8 @@ CREATE TABLE medicaldevices (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     image text,
-    manufacturer_id integer
+    manufacturer_id integer,
+    slug character varying(255)
 );
 
 
@@ -679,6 +680,13 @@ CREATE INDEX index_medicaldevices_on_manufacturer_id ON medicaldevices USING btr
 
 
 --
+-- Name: index_medicaldevices_on_slug; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_medicaldevices_on_slug ON medicaldevices USING btree (slug);
+
+
+--
 -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -757,3 +765,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140304080839');
 INSERT INTO schema_migrations (version) VALUES ('20140312060359');
 
 INSERT INTO schema_migrations (version) VALUES ('20140312070617');
+
+INSERT INTO schema_migrations (version) VALUES ('20140329051223');
