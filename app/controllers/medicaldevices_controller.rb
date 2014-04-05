@@ -20,6 +20,7 @@ class MedicaldevicesController < ApplicationController
     current_medicaldevice = @medicaldevice
     @videourls = @medicaldevice.videourls
     device_reviews= @medicaldevice.device_reviews
+    @similar_devices= Medicaldevice.similar_devices(@medicaldevice).limit(10)
   end
 
   # GET /medicaldevices/new

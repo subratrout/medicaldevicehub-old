@@ -42,8 +42,9 @@
                     </div>
       </div>
 
+
       <div class="row">
-              <div class="col-md-8 col-sx-7 device-video">
+              <div class="col-md-7 col-sx-7 device-video">
                 <p>
                     <Strong><h3> Watch How-To Video: </h3></Strong>
                     
@@ -63,12 +64,52 @@
                 </p>
               </div>
 
-              <div class="col-md-4 col-sx-5">
+              <div class="col-md-5 col-sx-5">
                 <p>
-                    <Strong><h4> View Similar Devices: </h4></Strong>
+                    <Strong><h4> View Similar Medical Devices: </h4></Strong>
                 </p>
+                <div>
+                  <table>
+                            <thead>
+                              <tr>
+                                <th>Image </th>
+                                <th>Generic Name</th> 
+                                <th>Trade Name</th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                                <% @similar_devices.each do |medicaldevice| %>
+                                
+                                      <tr height = "50px" class= "<%= cycle('list_similar_line_odd', 'list_similar_line_even') %>">
+                                        <td width= "80px">
+                                          <%= image_tag(medicaldevice.image_url, class: 'deviceimage-thumbnail')%>
+                                        </td>
+                                        
+                                        <td>
+                                          <%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %>
+                                        </td>
+                                        <td>
+                                          <% if medicaldevice.generic_name.present? %>
+                                          <%= medicaldevice.trade_name %>
+                                          <%else %>
+                                           <%= link_to medicaldevice.trade_name, medicaldevice_path(medicaldevice)%>
+                                           <%end %>
+                                        </td>
+                                      </tr>
+                                    <% end %>
+                            </tbody>
+                  </table>
+                </div>
               </div>
       </div>
+
+
+
+        <div class="row device-page-contact-button">
+
+            <h4> LOOKING FOR SPECIFIC INFORMATION ON ANY MEDICAL DEVICE? <%= link_to "Contact Us", new_contact_path, :class =>"btn btn-danger btn-lg" %></h4>
+        </div>
               
               <div class="row">
                 <div class="col-md-8 col-sx-7">

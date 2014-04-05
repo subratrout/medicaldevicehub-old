@@ -39,7 +39,7 @@
             
                   <tr height = "50px" class= "<%= cycle('list_line_odd', 'list_line_even') %>">
                     <td width= "80px">
-                      <%= image_tag(medicaldevice.image_url, class: 'deviceimage-thumbnail')%>
+                      <%= link_to image_tag(medicaldevice.image_url, class: 'deviceimage-thumbnail'), medicaldevice_path(medicaldevice)%>
                     </td>
                     
                     <td>
