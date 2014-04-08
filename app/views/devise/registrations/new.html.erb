@@ -1,3 +1,6 @@
+<% content_for(:title, "Sign Up | MedicalDeviceHub") %>
+<% content_for(:description, "Sign up to submit reviews and suggestions and find medical devices avialable worldwide you are looking for. Get detailed information on medical devices including reviews and more!") %>
+
 <div class="container">
 	<div class ="row">
 
@@ -5,6 +8,25 @@
   				<div class="panel-heading">
     				<h1>Sign up</h1>
   				</div>
+  				
+
+  				<% if flash[:error] %>
+                	<div class="error"><%= flash[:error] %></div>
+            	<% end %>
+            	<%= devise_error_messages! %>
+
+
+            	<div id='facebook-container'>
+            		<div class='facebook-link'>
+              			<%= link_to image_tag('fb_signup.svg'), user_omniauth_authorize_path(:facebook), :class => 'facebook social' %>
+            		</div>
+            
+            		<p>We'll never post anything to your <br> account without your permission.</p>
+          		</div>
+
+          		<div class ="or">
+          			<p><strong> -Or-</strong> </p>
+          		</div>
 			 
 			<div class= "panel-body" >
 				<div class="col-md-6">
@@ -12,13 +34,18 @@
 					  <%= devise_error_messages! %>
 
 					  <div class="form-group">
+            				<%= f.label :name  %>
+            				<%= f.input_field :name, autofocus: true, class: "form-control" %>
+            		  </div>
+
+					  <div class="form-group">
 					  	<%= f.label :username  %>
-					  	<%= f.input_field :username, autofocus: true, class: "form-control" %>
+					  	<%= f.input_field :username, class: "form-control" %>
 					  </div>
 					   
 					  <div class="form-group">
 					  	<%= f.label :email %>
-		        		<%= f.email_field :email, autofocus: true, class: "form-control" %>
+		        		<%= f.email_field :email, class: "form-control" %>
 					  </div>
 
 					  <div class="form-group">
@@ -28,7 +55,7 @@
 
 					  <div class="form-group">
 					  	<%= f.label :password_confirmation %>
-					  	<%= f.password_field :password_confirmation ,autofocus: true, class: "form-control" %>
+					  	<%= f.password_field :password_confirmation, class: "form-control" %>
 					  </div>
 
 

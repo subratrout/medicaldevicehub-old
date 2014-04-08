@@ -32,6 +32,8 @@ gem 'google_drive'
 gem 'auto_html'
 gem 'friendly_id'
 gem 'sitemap_generator'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :test do
 	gem 'rspec-rails','2.14.0'

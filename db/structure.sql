@@ -345,7 +345,11 @@ CREATE TABLE users (
     last_sign_in_ip character varying(255),
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    username character varying(255)
+    username character varying(255),
+    provider character varying(255),
+    uid character varying(255),
+    name character varying(255),
+    image character varying(255)
 );
 
 
@@ -694,6 +698,20 @@ CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
 
 
 --
+-- Name: index_users_on_image; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_users_on_image ON users USING btree (image);
+
+
+--
+-- Name: index_users_on_name; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_users_on_name ON users USING btree (name);
+
+
+--
 -- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -767,3 +785,7 @@ INSERT INTO schema_migrations (version) VALUES ('20140312060359');
 INSERT INTO schema_migrations (version) VALUES ('20140312070617');
 
 INSERT INTO schema_migrations (version) VALUES ('20140329051223');
+
+INSERT INTO schema_migrations (version) VALUES ('20140408034849');
+
+INSERT INTO schema_migrations (version) VALUES ('20140408055817');
