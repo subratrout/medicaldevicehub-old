@@ -14,18 +14,6 @@ class Medicaldevice < ActiveRecord::Base
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     # Search:-
 
         	include PgSearch
@@ -39,12 +27,12 @@ class Medicaldevice < ActiveRecord::Base
               			ts_rank(to_tsvector(generic_name), plainto_tsquery(#{sanitize(query)})) +
               			ts_rank(to_tsvector(trade_name), plainto_tsquery(#{sanitize(query)}))+
               			ts_rank(to_tsvector(description), plainto_tsquery(#{sanitize(query)})) +
-              			ts_rank(to_tsvector(applicant), plainto_tsquery(#{sanitize(query)})) 
+              			ts_rank(to_tsvector(applicant), plainto_tsquery(#{sanitize(query)}))
             		RANK
 
 
             	where("to_tsvector('english', generic_name) @@ plainto_tsquery(:q) or to_tsvector('english', trade_name) @@ plainto_tsquery(:q) or to_tsvector('english', description) @@ plainto_tsquery(:q) or to_tsvector('english', applicant)@@ plainto_tsquery(:q)", q: query).order("#{rank} DESC")
-        			
+
         		else
         			all
         		end
@@ -52,9 +40,9 @@ class Medicaldevice < ActiveRecord::Base
 
        def to_param
           if trade_name.present?
-         "#{id}-#{trade_name.parameterize}"
+            "#{id}-#{trade_name.parameterize}"
           else
-         "#{id}-#{generic_name.parameterize}"
+            "#{id}-#{generic_name.parameterize}"
           end
        end
 
@@ -64,7 +52,7 @@ class Medicaldevice < ActiveRecord::Base
 
 
       #	after_save :enqueue_image
-        
+
         def image_name
           File.basename(image.path || image.filename) if image
         end
@@ -75,7 +63,7 @@ class Medicaldevice < ActiveRecord::Base
 
         class ImageWorker
           include Sidekiq::Worker
-          
+
           def perform(id, key)
             medicaldevice = Medicaldevice.find(id)
             medicaldevice.key = key

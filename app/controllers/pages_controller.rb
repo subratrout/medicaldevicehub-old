@@ -11,8 +11,7 @@ class PagesController < ApplicationController
 
 	  def home
 	  	@medicaldevices =Medicaldevice.text_search(params[:search]).limit(40)
-	  	@medicaldevices =Medicaldevice.limit(100)
-	  	
+	  	@medicaldevices =Medicaldevice.limit(100)	
 	  end
 
 	  def about
@@ -40,3 +39,4 @@ class PagesController < ApplicationController
       params.require(:medicaldevice).permit(:pmak_number, :applicant, :street1, :street2, :city, :state, :zip, :generic_name, :trade_name, :product_code, :advisory_committee, :description,:image)
     end
 end
+
