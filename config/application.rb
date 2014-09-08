@@ -29,6 +29,9 @@ module Medicaldevicehub
     config.assets.initialize_on_precompile = false
     config.assets.precompile+=%w(*.png *.jpg *.jpeg *.gif)
 
+    # For font awesome
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
     # To generate full controller command
     config.app_generators.scaffold_controller = :scaffold_controller
   end

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="4067021926">
+    <data-source source="LOCAL" name="Rails medicaldevicehub: development" uuid="298a3128-b988-4c60-9b97-05513a7ba2f4">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/medicaldevicehub_development</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails medicaldevicehub: test" uuid="c0a56dad-14e9-4d05-8f68-596702d0d025">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1/medicaldevicehub_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails medicaldevicehub: production" uuid="c890b50c-8fc5-40b8-a9f8-ab16d050bb57">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:medicaldevicehub_production</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

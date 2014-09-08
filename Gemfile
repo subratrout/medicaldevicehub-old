@@ -34,6 +34,7 @@ gem 'friendly_id'
 gem 'sitemap_generator'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "font-awesome-rails"
 
 group :test do
 	gem 'rspec-rails','2.14.0'
