@@ -8,6 +8,15 @@ body {
 }
 
 
+.navbar-default .navbar-nav > li > a {
+    color: #F6F6F6;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+  color: #707070;
+}
+
+
 @font-face {
     font-family: 'OpenSansRegular';
     src:font-url('OpenSansRegular.eot');
@@ -85,3 +94,27 @@ body {
     font-weight: normal;
     font-style: normal;
 }
+
+/* Navigation */
+
+.fhmm .boxes {
+        margin-bottom:0
+    }
+
+    .fhmm .dropdown-menu > li > a:hover,
+    .fhmm .dropdown-menu > li > a:focus,
+    .searchmodule {
+        background-color:#19B8DF;
+    }
+
+        .topbar,
+    .fhmm .dropdown-menu {
+        border-top-color:#19B8DF
+    }
+
+.fhmm {
+    margin-top:50px;
+}
+
+
+

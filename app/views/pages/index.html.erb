@@ -1,71 +1,75 @@
-
-<div id="container2">
-                <div class="rotator-box">
-                  <a class="rotator" ><img class ="rotator" src ="/assets/welcome2.png" alt="device welcome" ></a>
-                      <ul class= "info"> 
-                        <li>128,634 Listed Medical devices </li>
-                        <li>230 How to Use Instructions </li>
-                        <li>136 How to Use Videos </li>
-                      </ul>
-                </div>
-</div>
+<div class="container">
+  <div class="row">
+        <div id="container2">
+                        <div class="rotator-box">
+                          <a class="rotator" ><img class ="rotator" src ="/assets/welcome2.png" alt="device welcome" ></a>
+                              <ul class= "info">
+                                <li>128,634 Listed Medical devices </li>
+                                <li>230 How to Use Instructions </li>
+                                <li>136 How to Use Videos </li>
+                              </ul>
+                        </div>
+        </div>
 
         <div class="rotator-bottom">
         </div>
+  </div>
 
+  <div class="row">
 
+      <div class= "search-box">
+        <%= render 'layouts/search' %>
+      </div>
 
-<div class= "search-box">
-  <%= render 'layouts/search' %>
-</div>
+      <div id="device-box">
 
-<div id="device-box">
+            <% if @medicaldevices.present? %>
 
-      <% if @medicaldevices.present? %>
+            <h1>Medical Devices Directory</h1>
 
-      <h1>Medical Devices Directory</h1>
+            <table>
+              <thead>
+                <tr>
+                  <th>Device Image </th>
+                  <th>Generic Name</th>
+                  <th>Trade name</th>
+                  <th>Manufacturer</th>
+                </tr>
+              </thead>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Device Image </th>
-            <th>Generic Name</th> 
-            <th>Trade name</th>
-            <th>Manufacturer</th>
-          </tr>
-        </thead>
+              <tbody>
+                  <% @medicaldevices.each do |medicaldevice| %>
 
-        <tbody>
-            <% @medicaldevices.each do |medicaldevice| %>
-            
-                  <tr height = "50px" class= "<%= cycle('list_line_odd', 'list_line_even') %>">
-                    <td width= "80px">
-                      <%= link_to image_tag(medicaldevice.image_url, class: 'deviceimage-thumbnail'), medicaldevice_path(medicaldevice)%>
-                    </td>
-                    
-                    <td>
-                      <%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %>
-                    </td>
-                    <td>
-                      <% if medicaldevice.generic_name.present? %>
-                      <%= medicaldevice.trade_name %>
-                      <%else %>
-                       <%= link_to medicaldevice.trade_name, medicaldevice_path(medicaldevice)%>
-                       <%end %>
-                    </td>
+                        <tr height = "50px" class= "<%= cycle('list_line_odd', 'list_line_even') %>">
+                          <td width= "80px">
+                            <%= link_to image_tag(medicaldevice.image_url, class: 'deviceimage-thumbnail'), medicaldevice_path(medicaldevice)%>
+                          </td>
 
-                    <td>
-                      <%= medicaldevice.applicant %>
-                    </td>
-                  </tr>
-                <% end %>
-        </tbody>
-      </table>
-      <% else %>
-      <div>Sorry! No Devices Found. Please Contact Us for More info.</div>
-      <% end %>
+                          <td>
+                            <%= link_to medicaldevice.generic_name, medicaldevice_path(medicaldevice) %>
+                          </td>
+                          <td>
+                            <% if medicaldevice.generic_name.present? %>
+                            <%= medicaldevice.trade_name %>
+                            <%else %>
+                             <%= link_to medicaldevice.trade_name, medicaldevice_path(medicaldevice)%>
+                             <%end %>
+                          </td>
 
-      <br>
+                          <td>
+                            <%= medicaldevice.applicant %>
+                          </td>
+                        </tr>
+                      <% end %>
+              </tbody>
+            </table>
+            <% else %>
+            <div>Sorry! No Devices Found. Please Contact Us for More info.</div>
+            <% end %>
 
-      <%= link_to 'Home', root_path, :class => 'btn btn-primary' %>
+            <br>
+
+            <%= link_to 'Home', root_path, :class => 'btn btn-primary' %>
+      </div>
+  </div>
 </div>

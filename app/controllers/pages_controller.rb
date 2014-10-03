@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 
 
 	def index
+    @page = Page.all
 		#@medicaldevices =Medicaldevice.text_search(params[:search]).limit(20)
 		@medicaldevices =Medicaldevice.limit(100)
     	@medicaldevices = Medicaldevice.text_search(params[:query]).page(params[:page])
@@ -11,7 +12,7 @@ class PagesController < ApplicationController
 
 	  def home
 	  	@medicaldevices =Medicaldevice.text_search(params[:search]).limit(40)
-	  	@medicaldevices =Medicaldevice.limit(100)	
+	  	@medicaldevices =Medicaldevice.limit(100)
 	  end
 
 	  def about

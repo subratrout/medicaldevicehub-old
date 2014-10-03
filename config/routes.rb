@@ -1,6 +1,6 @@
 Medicaldevicehub::Application.routes.draw do
-  
-  
+
+
   resources :videourls
 
   #Active admin
@@ -25,10 +25,12 @@ Medicaldevicehub::Application.routes.draw do
   get 'contacts' => 'contacts#new'
 
 
-  resources :medicaldevices, except: [:destroy, :edit, :update] 
+
+
+  resources :medicaldevices, except: [:destroy, :edit, :update]
 
   resources :device_reviews
-  
+
   resources :manufacturers
 
   resources :contacts, only: [:new, :create]
@@ -39,11 +41,11 @@ Medicaldevicehub::Application.routes.draw do
   resources :manufacturers do
     resources :videourls
   end
-  
 
 
- 
-  
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -84,7 +86,7 @@ Medicaldevicehub::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
