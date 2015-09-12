@@ -3,7 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .list_line_even {
-  background: #e0ffff;
+  background: #509b9b;
+}
+
+tr .list_line_even {
+  color: #000;
 }
 
 .list_line_odd {
