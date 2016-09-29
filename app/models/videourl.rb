@@ -7,11 +7,11 @@ class Videourl < ActiveRecord::Base
 	validates :title, :body_html, presence: true
 
 
-	auto_html_for :body do
-    	html_escape
-    	image
-    	youtube(:autoplay => false)
-    	link :target => "_blank", :rel => "nofollow"
-    	simple_format
-  	end
+	# auto_html_for :body do
+ #    	html_escape
+ #    	image
+ #    	youtube(:autoplay => false)
+ #    	link :target => "_blank", :rel => "nofollow"
+ #    	simple_format
+ #  	end
 end
