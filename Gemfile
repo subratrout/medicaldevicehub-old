@@ -1,18 +1,18 @@
 source 'https://rubygems.org'
 ruby "2.1.1"
 
-gem 'rails', '4.0.3'
-gem 'jquery-rails', '3.0.4'
-gem 'turbolinks', '1.3.0'
-gem 'jbuilder', '~> 1.2'
+gem 'rails', '4.2.6'
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'cancan', '1.6.10'
 gem 'pg', '0.15.1'
 gem 'rails_12factor', '0.0.2'
-gem 'sass-rails'
+gem 'sass-rails', '~> 5.0'
 gem 'compass-rails'
 gem 'coffee-rails', '~>4.0.0'
-gem 'uglifier', '2.1.1'
+gem 'uglifier', '>= 2.7.2'
 gem 'pg_search', "~> 0.7.0"
 gem 'carrierwave', "~>0.9.0"
 gem 'simple_form'
@@ -46,6 +46,9 @@ end
 
 group :development do
 	gem 'brakeman', :require => false
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
+  gem 'byebug'
 end
 
 group :doc do
