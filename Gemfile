@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.1.2"
+ruby "2.2.5"
 
 gem 'rails', '4.2.6'
 gem 'jquery-rails'
@@ -45,7 +45,7 @@ group :test do
 end
 
 group :development do
-	gem 'brakeman', :require => false
+	gem 'brakeman', '~> 4.4.0'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'byebug'
